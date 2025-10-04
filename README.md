@@ -10,7 +10,7 @@ This project forks and customizes the upstream [`factoriotools/factorio`](https:
 - Support **`readOnlyRootFilesystem: true`** and minimal Linux capabilities
 - Provide a production-ready Factorio server container for **homelabs** and **secure clusters**
 
-> ⚠️ This repo is not affiliated with or endorsed by Wube Software or Factorio Tools. It’s a community build for educational and self-hosting purposes.
+!This repo is not affiliated with or endorsed by Wube Software or Factorio Tools. It’s a community build for educational and self-hosting purposes.!
 
 ---
 
