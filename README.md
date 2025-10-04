@@ -1,4 +1,4 @@
-# 🏭 Factorio Hardened
+# Factorio Hardened
 
 A custom, hardened Docker image for running **Factorio** on Kubernetes clusters with secure policies enabled.
 
@@ -14,7 +14,7 @@ This project forks and customizes the upstream [`factoriotools/factorio`](https:
 
 ---
 
-## 🎯 Purpose
+## Purpose
 
 Running game servers like Factorio inside Kubernetes clusters that enforce **secure pod policies** (Kyverno, PSA baseline/restricted, image hygiene) can be challenging.  
 The upstream Factorio image expects a fully writable root filesystem and root privileges.
@@ -23,7 +23,7 @@ This repo’s goal is to **repackage and harden Factorio** so it works seamlessl
 
 ---
 
-## 🔧 Features
+## Features
 
 - Hardened `Dockerfile` based on upstream Factorio image
 - Non-root execution with a dedicated UID/GID
@@ -33,7 +33,7 @@ This repo’s goal is to **repackage and harden Factorio** so it works seamlessl
 
 ---
 
-## 📝 Requirements
+## Requirements
 
 ### Build Requirements
 - [Docker](https://docs.docker.com/) (or Podman) installed locally
@@ -50,7 +50,7 @@ This repo’s goal is to **repackage and harden Factorio** so it works seamlessl
 
 ---
 
-## 📦 Using This Image
+## Using This Image
 
 Once built or pulled, deploy Factorio with your Helm chart by updating:
 
