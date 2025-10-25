@@ -1,0 +1,7 @@
+{
+  "BaseDigest": "sha256:bee8e1751f9cf59d673cb9eb751d55403407f90aa3701125b267ec778b85677a",
+  "Arch": "amd64",
+  "Version": "2.0.72",
+  "Tag": "ghcr.io/henryhall897/factorio-hardened:2.0.72",
+  "BuiltAt": "2025-10-25T23:31:53.03967224Z"
+}

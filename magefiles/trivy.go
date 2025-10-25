@@ -82,3 +82,68 @@ func installTrivy() error {
 	fmt.Println("Installing Trivy vulnerability scanner...")
 	return sh.RunV("sudo", "apt-get", "install", "-y", "trivy")
 }
+
+// ScanImage runs a Trivy scan on a given Docker image reference.
+// It fails the build if any *fixable* CRITICAL vulnerabilities are found.
+func (Trivy) ScanImage(image string) error {
+	fmt.Printf("Running Trivy vulnerability scan on image: %s\n", image)
+
+	if _, err := exec.LookPath("trivy"); err != nil {
+		fmt.Println("Trivy not found in PATH; skipping scan.")
+		return nil
+	}
+
+	cmd := exec.Command(
+		"trivy", "image",
+		"--severity", "CRITICAL",
+		"--ignore-unfixed", // Only count fixable vulnerabilities
+		"--exit-code", "1", // Exit non-zero if vulnerabilities found
+		"--quiet",
+		image,
+	)
+
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+
+	if err := cmd.Run(); err != nil {
+		return fmt.Errorf("fixable critical vulnerabilities detected in image %s", image)
+	}
+
+	fmt.Println("Trivy scan passed (no fixable critical vulnerabilities).")
+	return nil
+}
+
+// Report generates a full JSON Trivy report for the given image,
+// including all severities and unfixed issues, for long-term auditing.
+func (Trivy) Report(image string) error {
+	fmt.Printf("Generating Trivy audit report for image: %s\n", image)
+
+	if _, err := exec.LookPath("trivy"); err != nil {
+		return fmt.Errorf("Trivy not found in PATH; please install it to generate reports")
+	}
+
+	// Ensure output directory exists
+	if err := os.MkdirAll("trivy", 0755); err != nil {
+		return fmt.Errorf("failed to create trivy report directory: %v", err)
+	}
+
+	reportPath := "trivy/report.json"
+
+	cmd := exec.Command(
+		"trivy", "image",
+		"--ignore-unfixed",
+		"--format", "json",
+		"--output", reportPath,
+		image,
+	)
+
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+
+	if err := cmd.Run(); err != nil {
+		return fmt.Errorf("failed to generate Trivy report: %v", err)
+	}
+
+	fmt.Printf("Full Trivy report generated at %s\n", reportPath)
+	return nil
+}

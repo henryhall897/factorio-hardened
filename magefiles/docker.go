@@ -27,13 +27,13 @@ func (Docker) Verify() error {
 	return nil
 }
 
-// Deps ensures Docker is installed and authenticated for GHCR.
+// Deps ensures Docker, Buildx, and GHCR authentication are configured and functional.
 func (Docker) Deps() error {
 	fmt.Println("Ensuring Docker dependencies...")
 
 	// 1. Ensure Docker itself is installed
 	if err := (Docker{}).Verify(); err != nil {
-		fmt.Println("Docker not detected or unhealthy. Installing via apt...")
+		fmt.Println("Docker not detected or unhealthy. Installing official Docker Engine...")
 		if err := installDocker(); err != nil {
 			return fmt.Errorf("failed to install Docker: %w", err)
 		}
@@ -44,7 +44,16 @@ func (Docker) Deps() error {
 		}
 	}
 
-	// 2. Verify Docker GHCR authentication
+	// 2. Ensure Buildx is available and configured
+	fmt.Println("Verifying Docker Buildx availability...")
+	if err := verifyBuildx(); err != nil {
+		fmt.Println("Docker Buildx not detected or misconfigured. Attempting to set up...")
+		if err := ensureBuildx(); err != nil {
+			return fmt.Errorf("failed to configure Docker Buildx: %w", err)
+		}
+	}
+
+	// 3. Verify Docker GHCR authentication
 	fmt.Println("Verifying Docker authentication for GHCR...")
 	if err := (Docker{}).VerifyAuth(); err != nil {
 		fmt.Println("Docker GHCR authentication is missing or invalid. Configuring credentials...")
@@ -53,7 +62,7 @@ func (Docker) Deps() error {
 		}
 	}
 
-	fmt.Println("Docker successfully installed and authenticated.")
+	fmt.Println("Docker successfully installed, Buildx configured, and GHCR authentication verified.")
 	return nil
 }
 
@@ -69,15 +78,79 @@ func verifyDockerInstallation() error {
 		return fmt.Errorf("docker daemon unreachable or not running: %w", err)
 	}
 
-	fmt.Printf("Docker is installed and running (version: %s)\n", strings.TrimSpace(string(out)))
+	version := strings.TrimSpace(string(out))
+	fmt.Printf("Docker is installed and running (version: %s)\n", version)
+	return nil
+}
+
+// verifyBuildx checks whether Docker Buildx is installed and properly configured
+// with a containerized builder (driver = docker-container).
+func verifyBuildx() error {
+	// Check plugin availability
+	if err := exec.Command("docker", "buildx", "version").Run(); err != nil {
+		return fmt.Errorf("docker buildx not installed: %w", err)
+	}
+
+	// Inspect active builder
+	cmd := exec.Command("docker", "buildx", "inspect")
+	out, err := cmd.CombinedOutput()
+	if err != nil {
+		return fmt.Errorf("failed to inspect buildx builder: %w", err)
+	}
+
+	output := strings.ReplaceAll(string(out), "\r", "")
+	output = strings.ReplaceAll(output, "\t", " ")
+	output = strings.TrimSpace(output)
+
+	// Normalize spaces and check driver
+	lines := strings.Split(output, "\n")
+	for _, line := range lines {
+		if strings.Contains(line, "Driver:") && strings.Contains(line, "docker-container") {
+			fmt.Println("Docker Buildx is available and correctly configured.")
+			return nil
+		}
+	}
+
+	// If we got here, it's installed but wrong driver
+	fmt.Println("Docker Buildx found, but using docker driver instead of docker-container.")
+	return fmt.Errorf("buildx not using docker-container driver (reconfiguration required)")
+}
+
+// ensureBuildx ensures that Docker Buildx is installed and configured.
+// Delegates actual setup to scripts/buildx.sh for reproducible host-level behavior.
+func ensureBuildx() error {
+	fmt.Println("Configuring Docker Buildx...")
+
+	// Determine script path relative to project root
+	scriptPath := filepath.Join("scripts", "buildx.sh")
+	if _, err := os.Stat(scriptPath); os.IsNotExist(err) {
+		return fmt.Errorf("missing helper script: %s", scriptPath)
+	}
+
+	// Run the setup script
+	cmd := exec.Command("bash", scriptPath)
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+	cmd.Env = append(os.Environ(), "HOME="+os.Getenv("HOME"))
+
+	if err := cmd.Run(); err != nil {
+		return fmt.Errorf("failed to configure Buildx via %s: %w", scriptPath, err)
+	}
+
+	// Verify final Buildx status
+	verify := exec.Command("docker", "buildx", "inspect")
+	verify.Env = append(os.Environ(), "HOME="+os.Getenv("HOME"))
+	out, err := verify.CombinedOutput()
+	if err != nil {
+		return fmt.Errorf("failed to verify Buildx configuration: %w", err)
+	}
+
+	fmt.Println(string(out))
+	fmt.Println("Docker Buildx successfully configured for multi-platform builds.")
 	return nil
 }
 
 // VerifyAuth validates Docker authentication for GHCR (GitHub Container Registry).
-// It ensures that:
-//  1. The Docker configuration file exists and is valid JSON
-//  2. No global or per-registry credential helpers (e.g., "pass") are active
-//  3. The GHCR registry contains a valid base64-encoded authentication entry
 func (Docker) VerifyAuth() error {
 	const configPath = ".docker/config.json"
 	homeDir, err := os.UserHomeDir()
@@ -141,7 +214,6 @@ func (Docker) VerifyAuth() error {
 func ensureDockerAuth() error {
 	configPath := fmt.Sprintf("%s/.docker/config.json", os.Getenv("HOME"))
 
-	// Ensure Docker config exists
 	data, err := os.ReadFile(configPath)
 	if os.IsNotExist(err) {
 		fmt.Println("Docker configuration not found. Creating ~/.docker/config.json ...")
@@ -192,11 +264,31 @@ func ensureDockerAuth() error {
 	return nil
 }
 
-// installDocker installs Docker using the system package manager.
+// installDocker ensures the official Docker Engine (with Buildx and Compose) is installed.
+// If the system is using Ubuntu's legacy `docker.io` package, it will be replaced.
 func installDocker() error {
+	fmt.Println("Installing official Docker Engine and Buildx plugin...")
+
+	// Detect whether the current docker binary is the Ubuntu version
+	cmd := exec.Command("docker", "--version")
+	out, err := cmd.CombinedOutput()
+	if err == nil && strings.Contains(string(out), "Ubuntu") {
+		fmt.Println("Detected Ubuntu-provided Docker package (docker.io). Removing it before installing official Docker...")
+		remove := exec.Command("sudo", "apt-get", "remove", "-y", "docker.io", "docker-doc", "podman-docker", "containerd", "runc")
+		remove.Stdout, remove.Stderr = os.Stdout, os.Stderr
+		if err := remove.Run(); err != nil {
+			return fmt.Errorf("failed to remove legacy Docker packages: %w", err)
+		}
+	}
+
 	cmds := [][]string{
 		{"sudo", "apt-get", "update", "-y"},
-		{"sudo", "apt-get", "install", "-y", "docker.io"},
+		{"sudo", "apt-get", "install", "-y", "ca-certificates", "curl", "gnupg"},
+		{"sudo", "install", "-m", "0755", "-d", "/etc/apt/keyrings"},
+		{"bash", "-c", "curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg"},
+		{"bash", "-c", "echo \"deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo $VERSION_CODENAME) stable\" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null"},
+		{"sudo", "apt-get", "update", "-y"},
+		{"sudo", "apt-get", "install", "-y", "docker-ce", "docker-ce-cli", "containerd.io", "docker-buildx-plugin", "docker-compose-plugin", "qemu-user-static"},
 	}
 
 	for _, args := range cmds {
@@ -207,5 +299,11 @@ func installDocker() error {
 		}
 	}
 
+	cmd = exec.Command("docker", "version", "--format", "{{.Server.Version}}")
+	if err := cmd.Run(); err != nil {
+		return fmt.Errorf("docker installation failed or daemon not reachable: %w", err)
+	}
+
+	fmt.Println("Official Docker Engine and Buildx successfully installed.")
 	return nil
 }
