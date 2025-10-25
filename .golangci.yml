@@ -1,0 +1,26 @@
+issues:
+  exclude-dirs:
+    - magefiles
+
+run:
+  allow-parallel-runners: true
+  tests: false
+  timeout: 3m
+
+linters:
+  enable:
+    - govet
+    - staticcheck
+    - gofmt
+    - ineffassign
+    - unused
+    - errcheck
+    - gosimple
+    - revive   # replaces the old "shadow" linter
+
+linters-settings:
+  gofmt:
+    simplify: true
+  revive:
+    rules:
+      - name: shadow  # replicate old "shadow" behavior
