@@ -1,0 +1,8 @@
+{
+  "Arch": "multi-arch",
+  "BaseDigest": "sha256:feeebedf6754969a43d7c08a48fc9508b2d91b34f5cbf1e120740b3fbdf3a75e",
+  "BuiltAt": "2025-10-26T21:51:28.485047809Z",
+  "Digest": "sha256:d097a81e4b6bee8fa47e80422918ea25e94b7f91d6c84a31a3e2ca7dcf937bef",
+  "Tag": "ghcr.io/henryhall897/factorio-hardened:2.0.69",
+  "Version": "2.0.69"
+}

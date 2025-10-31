@@ -1,0 +1,960 @@
+   0.000 2025-10-26 11:33:55; Factorio 2.0.72 (build 84292, linux64, headless, space-age)
+   0.000 Operating system: Linux
+   0.000 Not rotating logs.
+   0.000 Program arguments: "/opt/factorio/bin/x64/factorio" "--config" "/factorio/config/config.ini" "--port" "34197" "--rcon-port" "27015" "--server-settings" "/factorio/config/server-settings.json" "--rcon-password" <private> "/factorio/config/rconpw" "2>/dev/null" "||" "echo" "defaultpass)"" "--mod-directory" "/factorio/mods" "--console-log" "/dev/stdout" "--no-log-rotation" "--start-server-load-latest" 
+   0.000 Config path: /factorio/config/config.ini
+   0.000 Read data path: /opt/factorio/data
+   0.000 Write data path: /factorio [425744/478562MB]
+   0.000 Binaries path: /opt/factorio/bin
+   0.005 System info: [CPU: AMD Ryzen 5 6600H with Radeon Graphics, 12 cores, RAM: 15228 MB]
+   0.005 Environment: DISPLAY=<unset> WAYLAND_DISPLAY=<unset> DESKTOP_SESSION=<unset> XDG_SESSION_DESKTOP=<unset> XDG_CURRENT_DESKTOP=<unset> SDL_VIDEODRIVER=<unset> __GL_FSAA_MODE=<unset> __GL_LOG_MAX_ANISO=<unset> __GL_SYNC_TO_VBLANK=<unset> __GL_SORT_FBCONFIGS=<unset> __GL_YIELD=<unset>
+   0.006 Running in headless mode
+   0.006 Audio is disabled
+   0.007 Info ModManager.cpp:446: FeatureFlag expansion-shaders = true
+   0.007 Info ModManager.cpp:446: FeatureFlag freezing = true
+   0.007 Info ModManager.cpp:446: FeatureFlag quality = true
+   0.007 Info ModManager.cpp:446: FeatureFlag rail-bridges = true
+   0.007 Info ModManager.cpp:446: FeatureFlag segmented-units = true
+   0.007 Info ModManager.cpp:446: FeatureFlag space-travel = true
+   0.007 Info ModManager.cpp:446: FeatureFlag spoiling = true
+   0.009 Loading mod core 0.0.0 (data.lua)
+   0.018 Loading mod base 2.0.72 (data.lua)
+   0.131 Loading mod elevated-rails 2.0.72 (data.lua)
+   0.151 Loading mod quality 2.0.72 (data.lua)
+   0.161 Loading mod space-age 2.0.72 (data.lua)
+   0.320 Loading mod base 2.0.72 (data-updates.lua)
+   0.330 Loading mod quality 2.0.72 (data-updates.lua)
+   0.345 Loading mod space-age 2.0.72 (data-updates.lua)
+   0.413 Checksum for core: 3316885848
+   0.414 Checksum of base: 1879415942
+   0.414 Checksum of elevated-rails: 70351106
+   0.414 Checksum of quality: 1142589254
+   0.414 Checksum of space-age: 1510664043
+   0.695 Prototype list checksum: 3295867752
+   0.743 Info PlayerData.cpp:66: Local player-data.json unavailable
+   0.743 Info PlayerData.cpp:71: Cloud player-data.json unavailable
+   0.744 Info GlobalContext.cpp:1294: Resetting config.
+   0.744 Factorio initialised
+   0.744 Error CommandLineMultiplayer.cpp:141: No latest save file found in /factorio/saves.
+   0.747 Info ServerMultiplayerManager.cpp:146: Quitting multiplayer connection.
+   0.747 Info ServerMultiplayerManager.cpp:808: updateTick(18446744073709551615) changing state from(Ready) to(Closed)
+   0.747 Info ServerMultiplayerManager.cpp:166: Deleting active scenario (global = true).
+   0.782 Goodbye
+   0.000 2025-10-26 11:34:14; Factorio 2.0.72 (build 84292, linux64, headless, space-age)
+   0.000 Operating system: Linux
+   0.000 Not rotating logs.
+   0.000 Program arguments: "/opt/factorio/bin/x64/factorio" "--config" "/factorio/config/config.ini" "--port" "34197" "--rcon-port" "27015" "--server-settings" "/factorio/config/server-settings.json" "--rcon-password" <private> "/factorio/config/rconpw" "2>/dev/null" "||" "echo" "defaultpass)"" "--mod-directory" "/factorio/mods" "--console-log" "/dev/stdout" "--no-log-rotation" "--start-server-load-latest" 
+   0.000 Config path: /factorio/config/config.ini
+   0.000 Read data path: /opt/factorio/data
+   0.000 Write data path: /factorio [425742/478562MB]
+   0.000 Binaries path: /opt/factorio/bin
+   0.005 System info: [CPU: AMD Ryzen 5 6600H with Radeon Graphics, 12 cores, RAM: 15228 MB]
+   0.005 Environment: DISPLAY=<unset> WAYLAND_DISPLAY=<unset> DESKTOP_SESSION=<unset> XDG_SESSION_DESKTOP=<unset> XDG_CURRENT_DESKTOP=<unset> SDL_VIDEODRIVER=<unset> __GL_FSAA_MODE=<unset> __GL_LOG_MAX_ANISO=<unset> __GL_SYNC_TO_VBLANK=<unset> __GL_SORT_FBCONFIGS=<unset> __GL_YIELD=<unset>
+   0.006 Running in headless mode
+   0.006 Audio is disabled
+   0.006 Info ModManager.cpp:446: FeatureFlag expansion-shaders = true
+   0.006 Info ModManager.cpp:446: FeatureFlag freezing = true
+   0.006 Info ModManager.cpp:446: FeatureFlag quality = true
+   0.006 Info ModManager.cpp:446: FeatureFlag rail-bridges = true
+   0.006 Info ModManager.cpp:446: FeatureFlag segmented-units = true
+   0.006 Info ModManager.cpp:446: FeatureFlag space-travel = true
+   0.006 Info ModManager.cpp:446: FeatureFlag spoiling = true
+   0.008 Loading mod core 0.0.0 (data.lua)
+   0.018 Loading mod base 2.0.72 (data.lua)
+   0.130 Loading mod elevated-rails 2.0.72 (data.lua)
+   0.155 Loading mod quality 2.0.72 (data.lua)
+   0.165 Loading mod space-age 2.0.72 (data.lua)
+   0.319 Loading mod base 2.0.72 (data-updates.lua)
+   0.329 Loading mod quality 2.0.72 (data-updates.lua)
+   0.343 Loading mod space-age 2.0.72 (data-updates.lua)
+   0.413 Checksum for core: 3316885848
+   0.413 Checksum of base: 1879415942
+   0.413 Checksum of elevated-rails: 70351106
+   0.413 Checksum of quality: 1142589254
+   0.413 Checksum of space-age: 1510664043
+   0.692 Prototype list checksum: 3295867752
+   0.741 Info PlayerData.cpp:64: Local player-data.json available, timestamp 1761478436
+   0.741 Info PlayerData.cpp:71: Cloud player-data.json unavailable
+   0.742 Info GlobalContext.cpp:1294: Resetting config.
+   0.742 Factorio initialised
+   0.742 Info ServerSynchronizer.cpp:22: nextHeartbeatSequenceNumber(0) initialized Synchronizer nextTickClosureTick(0).
+   0.742 Info ServerMultiplayerManager.cpp:808: updateTick(18446744073709551615) changing state from(Ready) to(PreparedToHostGame)
+   0.742 Info ServerMultiplayerManager.cpp:808: updateTick(18446744073709551615) changing state from(PreparedToHostGame) to(CreatingGame)
+   0.742 Loading map /factorio/saves/world-live.zip: 1343006 bytes.
+   0.756 Loading level.dat: 1202441 bytes.
+   0.756 Info Scenario.cpp:154: Map version 2.0.69-0
+   0.779 Blueprint storage "blueprint-storage-2.dat" was not found, trying to load previous version storage "blueprint-storage.dat"
+   0.782 Loading script.dat: 1222 bytes.
+   0.783 Checksum for script __level__/control.lua: 2722821277
+   0.785 Info UDPSocket.cpp:37: Opening socket at (IP ADDR:({0.0.0.0:34197}))
+   0.785 Hosting game at IP ADDR:({0.0.0.0:34197})
+   0.785 Info HttpSharedState.cpp:57: Downloading https://auth.factorio.com/generate-server-padlock-2?api_version=6
+   0.921 Info AuthServerConnector.cpp:112: Obtained serverPadlock for serverHash (0Pn7PofKgx1q72iQz1Rym9tVIoYSR7pF) from the auth server.
+   0.921 Info ServerMultiplayerManager.cpp:808: updateTick(144) changing state from(CreatingGame) to(InGame)
+   0.921 Info UDPSocket.cpp:49: Opening socket for broadcast
+   0.921 Error InterruptibleStdioStream.cpp:55: Got EOF on stdin; closing
+   0.921 Info RemoteCommandProcessor.cpp:126: Starting RCON interface at IP ADDR:({0.0.0.0:27015})
+   0.000 2025-10-26 11:45:21; Factorio 2.0.72 (build 84292, linux64, headless, space-age)
+   0.000 Operating system: Linux
+   0.000 Not rotating logs.
+   0.000 Program arguments: "/opt/factorio/bin/x64/factorio" "--config" "/factorio/config/config.ini" "--port" "34197" "--rcon-port" "27015" "--server-settings" "/factorio/config/server-settings.json" "--rcon-password" <private> "/factorio/config/rconpw" "2>/dev/null" "||" "echo" "defaultpass)"" "--mod-directory" "/factorio/mods" "--console-log" "/dev/stdout" "--no-log-rotation" "--start-server-load-latest" 
+   0.000 Config path: /factorio/config/config.ini
+   0.000 Read data path: /opt/factorio/data
+   0.000 Write data path: /factorio [425717/478562MB]
+   0.000 Binaries path: /opt/factorio/bin
+   0.005 System info: [CPU: AMD Ryzen 5 6600H with Radeon Graphics, 12 cores, RAM: 15228 MB]
+   0.005 Environment: DISPLAY=<unset> WAYLAND_DISPLAY=<unset> DESKTOP_SESSION=<unset> XDG_SESSION_DESKTOP=<unset> XDG_CURRENT_DESKTOP=<unset> SDL_VIDEODRIVER=<unset> __GL_FSAA_MODE=<unset> __GL_LOG_MAX_ANISO=<unset> __GL_SYNC_TO_VBLANK=<unset> __GL_SORT_FBCONFIGS=<unset> __GL_YIELD=<unset>
+   0.006 Running in headless mode
+   0.006 Audio is disabled
+   0.006 Info ModManager.cpp:446: FeatureFlag expansion-shaders = true
+   0.006 Info ModManager.cpp:446: FeatureFlag freezing = true
+   0.006 Info ModManager.cpp:446: FeatureFlag quality = true
+   0.006 Info ModManager.cpp:446: FeatureFlag rail-bridges = true
+   0.006 Info ModManager.cpp:446: FeatureFlag segmented-units = true
+   0.006 Info ModManager.cpp:446: FeatureFlag space-travel = true
+   0.006 Info ModManager.cpp:446: FeatureFlag spoiling = true
+   0.008 Loading mod core 0.0.0 (data.lua)
+   0.018 Loading mod base 2.0.72 (data.lua)
+   0.119 Loading mod elevated-rails 2.0.72 (data.lua)
+   0.136 Loading mod quality 2.0.72 (data.lua)
+   0.148 Loading mod space-age 2.0.72 (data.lua)
+   0.343 Loading mod base 2.0.72 (data-updates.lua)
+   0.355 Loading mod quality 2.0.72 (data-updates.lua)
+   0.370 Loading mod space-age 2.0.72 (data-updates.lua)
+   0.438 Checksum for core: 3316885848
+   0.438 Checksum of base: 1879415942
+   0.438 Checksum of elevated-rails: 70351106
+   0.438 Checksum of quality: 1142589254
+   0.438 Checksum of space-age: 1510664043
+   0.722 Prototype list checksum: 3295867752
+   0.771 Info PlayerData.cpp:64: Local player-data.json available, timestamp 1761478436
+   0.771 Info PlayerData.cpp:71: Cloud player-data.json unavailable
+   0.772 Info GlobalContext.cpp:1294: Resetting config.
+   0.772 Factorio initialised
+   0.773 Info ServerSynchronizer.cpp:22: nextHeartbeatSequenceNumber(0) initialized Synchronizer nextTickClosureTick(0).
+   0.773 Info ServerMultiplayerManager.cpp:808: updateTick(18446744073709551615) changing state from(Ready) to(PreparedToHostGame)
+   0.773 Info ServerMultiplayerManager.cpp:808: updateTick(18446744073709551615) changing state from(PreparedToHostGame) to(CreatingGame)
+   0.773 Loading map /factorio/saves/world-live.zip: 1343006 bytes.
+   0.790 Loading level.dat: 1202441 bytes.
+   0.790 Info Scenario.cpp:154: Map version 2.0.69-0
+   0.812 Blueprint storage "blueprint-storage-2.dat" was not found, trying to load previous version storage "blueprint-storage.dat"
+   0.815 Loading script.dat: 1222 bytes.
+   0.817 Checksum for script __level__/control.lua: 2722821277
+   0.819 Info UDPSocket.cpp:37: Opening socket at (IP ADDR:({0.0.0.0:34197}))
+   0.819 Hosting game at IP ADDR:({0.0.0.0:34197})
+   0.819 Info HttpSharedState.cpp:57: Downloading https://auth.factorio.com/generate-server-padlock-2?api_version=6
+   0.938 Info AuthServerConnector.cpp:112: Obtained serverPadlock for serverHash (5tHqCze8PtxLQDDKWOQhwCc6VTAwHXSx) from the auth server.
+   0.938 Info ServerMultiplayerManager.cpp:808: updateTick(144) changing state from(CreatingGame) to(InGame)
+   0.938 Info UDPSocket.cpp:49: Opening socket for broadcast
+   0.939 Error InterruptibleStdioStream.cpp:55: Got EOF on stdin; closing
+   0.939 Info RemoteCommandProcessor.cpp:126: Starting RCON interface at IP ADDR:({0.0.0.0:27015})
+   0.000 2025-10-26 11:52:42; Factorio 2.0.72 (build 84292, linux64, headless, space-age)
+   0.000 Operating system: Linux
+   0.000 Not rotating logs.
+   0.000 Program arguments: "/opt/factorio/bin/x64/factorio" "--config" "/factorio/config/config.ini" "--port" "34197" "--rcon-port" "27015" "--server-settings" "/factorio/config/server-settings.json" "--rcon-password" <private> "/factorio/config/rconpw" "2>/dev/null" "||" "echo" "defaultpass)"" "--mod-directory" "/factorio/mods" "--console-log" "/dev/stdout" "--no-log-rotation" "--start-server-load-latest" 
+   0.000 Config path: /factorio/config/config.ini
+   0.000 Read data path: /opt/factorio/data
+   0.000 Write data path: /factorio [425716/478562MB]
+   0.000 Binaries path: /opt/factorio/bin
+   0.005 System info: [CPU: AMD Ryzen 5 6600H with Radeon Graphics, 12 cores, RAM: 15228 MB]
+   0.005 Environment: DISPLAY=<unset> WAYLAND_DISPLAY=<unset> DESKTOP_SESSION=<unset> XDG_SESSION_DESKTOP=<unset> XDG_CURRENT_DESKTOP=<unset> SDL_VIDEODRIVER=<unset> __GL_FSAA_MODE=<unset> __GL_LOG_MAX_ANISO=<unset> __GL_SYNC_TO_VBLANK=<unset> __GL_SORT_FBCONFIGS=<unset> __GL_YIELD=<unset>
+   0.006 Running in headless mode
+   0.006 Audio is disabled
+   0.006 Info ModManager.cpp:446: FeatureFlag expansion-shaders = true
+   0.006 Info ModManager.cpp:446: FeatureFlag freezing = true
+   0.006 Info ModManager.cpp:446: FeatureFlag quality = true
+   0.006 Info ModManager.cpp:446: FeatureFlag rail-bridges = true
+   0.006 Info ModManager.cpp:446: FeatureFlag segmented-units = true
+   0.006 Info ModManager.cpp:446: FeatureFlag space-travel = true
+   0.006 Info ModManager.cpp:446: FeatureFlag spoiling = true
+   0.008 Loading mod core 0.0.0 (data.lua)
+   0.017 Loading mod base 2.0.72 (data.lua)
+   0.118 Loading mod elevated-rails 2.0.72 (data.lua)
+   0.135 Loading mod quality 2.0.72 (data.lua)
+   0.145 Loading mod space-age 2.0.72 (data.lua)
+   0.305 Loading mod base 2.0.72 (data-updates.lua)
+   0.315 Loading mod quality 2.0.72 (data-updates.lua)
+   0.330 Loading mod space-age 2.0.72 (data-updates.lua)
+   0.397 Checksum for core: 3316885848
+   0.397 Checksum of base: 1879415942
+   0.397 Checksum of elevated-rails: 70351106
+   0.397 Checksum of quality: 1142589254
+   0.397 Checksum of space-age: 1510664043
+   0.675 Prototype list checksum: 3295867752
+   0.724 Info PlayerData.cpp:64: Local player-data.json available, timestamp 1761478436
+   0.724 Info PlayerData.cpp:71: Cloud player-data.json unavailable
+   0.725 Info GlobalContext.cpp:1294: Resetting config.
+   0.725 Factorio initialised
+   0.726 Info ServerSynchronizer.cpp:22: nextHeartbeatSequenceNumber(0) initialized Synchronizer nextTickClosureTick(0).
+   0.726 Info ServerMultiplayerManager.cpp:808: updateTick(18446744073709551615) changing state from(Ready) to(PreparedToHostGame)
+   0.726 Info ServerMultiplayerManager.cpp:808: updateTick(18446744073709551615) changing state from(PreparedToHostGame) to(CreatingGame)
+   0.726 Loading map /factorio/saves/world-live.zip: 1343006 bytes.
+   0.743 Loading level.dat: 1202441 bytes.
+   0.743 Info Scenario.cpp:154: Map version 2.0.69-0
+   0.767 Blueprint storage "blueprint-storage-2.dat" was not found, trying to load previous version storage "blueprint-storage.dat"
+   0.770 Loading script.dat: 1222 bytes.
+   0.772 Checksum for script __level__/control.lua: 2722821277
+   0.774 Info UDPSocket.cpp:37: Opening socket at (IP ADDR:({0.0.0.0:34197}))
+   0.774 Hosting game at IP ADDR:({0.0.0.0:34197})
+   0.774 Info HttpSharedState.cpp:57: Downloading https://auth.factorio.com/generate-server-padlock-2?api_version=6
+   0.892 Info AuthServerConnector.cpp:112: Obtained serverPadlock for serverHash (CBXEMcRwPe09W4EEAq7SCbsAf8oBNb5u) from the auth server.
+   0.892 Info ServerMultiplayerManager.cpp:808: updateTick(144) changing state from(CreatingGame) to(InGame)
+   0.892 Info UDPSocket.cpp:49: Opening socket for broadcast
+   0.893 Error InterruptibleStdioStream.cpp:55: Got EOF on stdin; closing
+   0.893 Info RemoteCommandProcessor.cpp:126: Starting RCON interface at IP ADDR:({0.0.0.0:27015})
+   0.000 2025-10-26 12:15:56; Factorio 2.0.72 (build 84292, linux64, headless, space-age)
+   0.000 Operating system: Linux
+   0.000 Not rotating logs.
+   0.000 Program arguments: "/opt/factorio/bin/x64/factorio" "--config" "/factorio/config/config.ini" "--port" "34197" "--rcon-port" "27015" "--server-settings" "/factorio/config/server-settings.json" "--rcon-password" <private> "/factorio/config/rconpw" "2>/dev/null" "||" "echo" "defaultpass)"" "--mod-directory" "/factorio/mods" "--console-log" "/dev/stdout" "--no-log-rotation" "--start-server-load-latest" 
+   0.000 Config path: /factorio/config/config.ini
+   0.000 Read data path: /opt/factorio/data
+   0.000 Write data path: /factorio [425715/478562MB]
+   0.000 Binaries path: /opt/factorio/bin
+   0.006 System info: [CPU: AMD Ryzen 5 6600H with Radeon Graphics, 12 cores, RAM: 15228 MB]
+   0.006 Environment: DISPLAY=<unset> WAYLAND_DISPLAY=<unset> DESKTOP_SESSION=<unset> XDG_SESSION_DESKTOP=<unset> XDG_CURRENT_DESKTOP=<unset> SDL_VIDEODRIVER=<unset> __GL_FSAA_MODE=<unset> __GL_LOG_MAX_ANISO=<unset> __GL_SYNC_TO_VBLANK=<unset> __GL_SORT_FBCONFIGS=<unset> __GL_YIELD=<unset>
+   0.007 Running in headless mode
+   0.007 Audio is disabled
+   0.007 Info ModManager.cpp:446: FeatureFlag expansion-shaders = true
+   0.007 Info ModManager.cpp:446: FeatureFlag freezing = true
+   0.007 Info ModManager.cpp:446: FeatureFlag quality = true
+   0.007 Info ModManager.cpp:446: FeatureFlag rail-bridges = true
+   0.007 Info ModManager.cpp:446: FeatureFlag segmented-units = true
+   0.007 Info ModManager.cpp:446: FeatureFlag space-travel = true
+   0.007 Info ModManager.cpp:446: FeatureFlag spoiling = true
+   0.009 Loading mod core 0.0.0 (data.lua)
+   0.019 Loading mod base 2.0.72 (data.lua)
+   0.124 Loading mod elevated-rails 2.0.72 (data.lua)
+   0.139 Loading mod quality 2.0.72 (data.lua)
+   0.149 Loading mod space-age 2.0.72 (data.lua)
+   0.306 Loading mod base 2.0.72 (data-updates.lua)
+   0.316 Loading mod quality 2.0.72 (data-updates.lua)
+   0.331 Loading mod space-age 2.0.72 (data-updates.lua)
+   0.399 Checksum for core: 3316885848
+   0.399 Checksum of base: 1879415942
+   0.399 Checksum of elevated-rails: 70351106
+   0.399 Checksum of quality: 1142589254
+   0.399 Checksum of space-age: 1510664043
+   0.678 Prototype list checksum: 3295867752
+   0.726 Info PlayerData.cpp:64: Local player-data.json available, timestamp 1761478436
+   0.726 Info PlayerData.cpp:71: Cloud player-data.json unavailable
+   0.727 Info GlobalContext.cpp:1294: Resetting config.
+   0.728 Factorio initialised
+   0.728 Info ServerSynchronizer.cpp:22: nextHeartbeatSequenceNumber(0) initialized Synchronizer nextTickClosureTick(0).
+   0.728 Info ServerMultiplayerManager.cpp:808: updateTick(18446744073709551615) changing state from(Ready) to(PreparedToHostGame)
+   0.728 Info ServerMultiplayerManager.cpp:808: updateTick(18446744073709551615) changing state from(PreparedToHostGame) to(CreatingGame)
+   0.728 Loading map /factorio/saves/world-live.zip: 1343006 bytes.
+   0.744 Loading level.dat: 1202441 bytes.
+   0.744 Info Scenario.cpp:154: Map version 2.0.69-0
+   0.767 Blueprint storage "blueprint-storage-2.dat" was not found, trying to load previous version storage "blueprint-storage.dat"
+   0.770 Loading script.dat: 1222 bytes.
+   0.772 Checksum for script __level__/control.lua: 2722821277
+   0.773 Info UDPSocket.cpp:37: Opening socket at (IP ADDR:({0.0.0.0:34197}))
+   0.773 Hosting game at IP ADDR:({0.0.0.0:34197})
+   0.773 Info HttpSharedState.cpp:57: Downloading https://auth.factorio.com/generate-server-padlock-2?api_version=6
+   0.895 Info AuthServerConnector.cpp:112: Obtained serverPadlock for serverHash (vqhEZMSXRsclr3UigkjIQZcAUGGc8wCc) from the auth server.
+   0.895 Info ServerMultiplayerManager.cpp:808: updateTick(144) changing state from(CreatingGame) to(InGame)
+   0.895 Info UDPSocket.cpp:49: Opening socket for broadcast
+   0.895 Error InterruptibleStdioStream.cpp:55: Got EOF on stdin; closing
+   0.895 Info RemoteCommandProcessor.cpp:126: Starting RCON interface at IP ADDR:({0.0.0.0:27015})
+   0.000 2025-10-26 12:26:09; Factorio 2.0.72 (build 84292, linux64, headless, space-age)
+   0.000 Operating system: Linux
+   0.000 Not rotating logs.
+   0.000 Program arguments: "/opt/factorio/bin/x64/factorio" "--config" "/factorio/config/config.ini" "--port" "34197" "--rcon-port" "27015" "--server-settings" "/factorio/config/server-settings.json" "--rcon-password" <private> "/factorio/config/rconpw" "2>/dev/null" "||" "echo" "defaultpass)"" "--mod-directory" "/factorio/mods" "--console-log" "/dev/stdout" "--no-log-rotation" "--start-server-load-latest" 
+   0.000 Config path: /factorio/config/config.ini
+   0.000 Read data path: /opt/factorio/data
+   0.000 Write data path: /factorio [425714/478562MB]
+   0.000 Binaries path: /opt/factorio/bin
+   0.006 System info: [CPU: AMD Ryzen 5 6600H with Radeon Graphics, 12 cores, RAM: 15228 MB]
+   0.006 Environment: DISPLAY=<unset> WAYLAND_DISPLAY=<unset> DESKTOP_SESSION=<unset> XDG_SESSION_DESKTOP=<unset> XDG_CURRENT_DESKTOP=<unset> SDL_VIDEODRIVER=<unset> __GL_FSAA_MODE=<unset> __GL_LOG_MAX_ANISO=<unset> __GL_SYNC_TO_VBLANK=<unset> __GL_SORT_FBCONFIGS=<unset> __GL_YIELD=<unset>
+   0.006 Running in headless mode
+   0.006 Audio is disabled
+   0.007 Info ModManager.cpp:446: FeatureFlag expansion-shaders = true
+   0.007 Info ModManager.cpp:446: FeatureFlag freezing = true
+   0.007 Info ModManager.cpp:446: FeatureFlag quality = true
+   0.007 Info ModManager.cpp:446: FeatureFlag rail-bridges = true
+   0.007 Info ModManager.cpp:446: FeatureFlag segmented-units = true
+   0.007 Info ModManager.cpp:446: FeatureFlag space-travel = true
+   0.007 Info ModManager.cpp:446: FeatureFlag spoiling = true
+   0.009 Loading mod core 0.0.0 (data.lua)
+   0.018 Loading mod base 2.0.72 (data.lua)
+   0.116 Loading mod elevated-rails 2.0.72 (data.lua)
+   0.133 Loading mod quality 2.0.72 (data.lua)
+   0.144 Loading mod space-age 2.0.72 (data.lua)
+   0.309 Loading mod base 2.0.72 (data-updates.lua)
+   0.319 Loading mod quality 2.0.72 (data-updates.lua)
+   0.333 Loading mod space-age 2.0.72 (data-updates.lua)
+   0.404 Checksum for core: 3316885848
+   0.404 Checksum of base: 1879415942
+   0.404 Checksum of elevated-rails: 70351106
+   0.404 Checksum of quality: 1142589254
+   0.404 Checksum of space-age: 1510664043
+   0.689 Prototype list checksum: 3295867752
+   0.737 Info PlayerData.cpp:64: Local player-data.json available, timestamp 1761478436
+   0.737 Info PlayerData.cpp:71: Cloud player-data.json unavailable
+   0.738 Info GlobalContext.cpp:1294: Resetting config.
+   0.738 Factorio initialised
+   0.738 Info ServerSynchronizer.cpp:22: nextHeartbeatSequenceNumber(0) initialized Synchronizer nextTickClosureTick(0).
+   0.738 Info ServerMultiplayerManager.cpp:808: updateTick(18446744073709551615) changing state from(Ready) to(PreparedToHostGame)
+   0.738 Info ServerMultiplayerManager.cpp:808: updateTick(18446744073709551615) changing state from(PreparedToHostGame) to(CreatingGame)
+   0.738 Loading map /factorio/saves/world-live.zip: 1343006 bytes.
+   0.753 Loading level.dat: 1202441 bytes.
+   0.754 Info Scenario.cpp:154: Map version 2.0.69-0
+   0.777 Blueprint storage "blueprint-storage-2.dat" was not found, trying to load previous version storage "blueprint-storage.dat"
+   0.779 Loading script.dat: 1222 bytes.
+   0.781 Checksum for script __level__/control.lua: 2722821277
+   0.783 Info UDPSocket.cpp:37: Opening socket at (IP ADDR:({0.0.0.0:34197}))
+   0.783 Hosting game at IP ADDR:({0.0.0.0:34197})
+   0.783 Info HttpSharedState.cpp:57: Downloading https://auth.factorio.com/generate-server-padlock-2?api_version=6
+   0.904 Info AuthServerConnector.cpp:112: Obtained serverPadlock for serverHash (nVVh6bfxOcOnYyHVxIMk4zqD8rS4cG5u) from the auth server.
+   0.905 Info ServerMultiplayerManager.cpp:808: updateTick(144) changing state from(CreatingGame) to(InGame)
+   0.905 Info UDPSocket.cpp:49: Opening socket for broadcast
+   0.905 Error InterruptibleStdioStream.cpp:55: Got EOF on stdin; closing
+   0.905 Info RemoteCommandProcessor.cpp:126: Starting RCON interface at IP ADDR:({0.0.0.0:27015})
+   0.000 2025-10-26 12:29:44; Factorio 2.0.72 (build 84292, linux64, headless, space-age)
+   0.000 Operating system: Linux
+   0.000 Not rotating logs.
+   0.000 Program arguments: "/opt/factorio/bin/x64/factorio" "--config" "/factorio/config/config.ini" "--port" "34197" "--rcon-port" "27015" "--server-settings" "/factorio/config/server-settings.json" "--rcon-password" <private> "/factorio/config/rconpw" "2>/dev/null" "||" "echo" "defaultpass)"" "--mod-directory" "/factorio/mods" "--console-log" "/dev/stdout" "--no-log-rotation" "--start-server" "/factorio/saves/world-live.zip" 
+   0.000 Config path: /factorio/config/config.ini
+   0.000 Read data path: /opt/factorio/data
+   0.000 Write data path: /factorio [425692/478562MB]
+   0.000 Binaries path: /opt/factorio/bin
+   0.006 System info: [CPU: AMD Ryzen 5 6600H with Radeon Graphics, 12 cores, RAM: 15228 MB]
+   0.006 Environment: DISPLAY=<unset> WAYLAND_DISPLAY=<unset> DESKTOP_SESSION=<unset> XDG_SESSION_DESKTOP=<unset> XDG_CURRENT_DESKTOP=<unset> SDL_VIDEODRIVER=<unset> __GL_FSAA_MODE=<unset> __GL_LOG_MAX_ANISO=<unset> __GL_SYNC_TO_VBLANK=<unset> __GL_SORT_FBCONFIGS=<unset> __GL_YIELD=<unset>
+   0.007 Running in headless mode
+   0.007 Audio is disabled
+   0.007 Info ModManager.cpp:446: FeatureFlag expansion-shaders = true
+   0.007 Info ModManager.cpp:446: FeatureFlag freezing = true
+   0.007 Info ModManager.cpp:446: FeatureFlag quality = true
+   0.007 Info ModManager.cpp:446: FeatureFlag rail-bridges = true
+   0.007 Info ModManager.cpp:446: FeatureFlag segmented-units = true
+   0.007 Info ModManager.cpp:446: FeatureFlag space-travel = true
+   0.007 Info ModManager.cpp:446: FeatureFlag spoiling = true
+   0.009 Loading mod core 0.0.0 (data.lua)
+   0.019 Loading mod base 2.0.72 (data.lua)
+   0.127 Loading mod elevated-rails 2.0.72 (data.lua)
+   0.146 Loading mod quality 2.0.72 (data.lua)
+   0.158 Loading mod space-age 2.0.72 (data.lua)
+   0.339 Loading mod base 2.0.72 (data-updates.lua)
+   0.351 Loading mod quality 2.0.72 (data-updates.lua)
+   0.365 Loading mod space-age 2.0.72 (data-updates.lua)
+   0.440 Checksum for core: 3316885848
+   0.440 Checksum of base: 1879415942
+   0.440 Checksum of elevated-rails: 70351106
+   0.440 Checksum of quality: 1142589254
+   0.440 Checksum of space-age: 1510664043
+   0.723 Prototype list checksum: 3295867752
+   0.773 Info PlayerData.cpp:64: Local player-data.json available, timestamp 1761478436
+   0.773 Info PlayerData.cpp:71: Cloud player-data.json unavailable
+   0.774 Info GlobalContext.cpp:1294: Resetting config.
+   0.774 Factorio initialised
+   0.774 Info ServerSynchronizer.cpp:22: nextHeartbeatSequenceNumber(0) initialized Synchronizer nextTickClosureTick(0).
+   0.774 Info ServerMultiplayerManager.cpp:808: updateTick(18446744073709551615) changing state from(Ready) to(PreparedToHostGame)
+   0.774 Info ServerMultiplayerManager.cpp:808: updateTick(18446744073709551615) changing state from(PreparedToHostGame) to(CreatingGame)
+   0.774 Loading map /factorio/saves/world-live.zip: 1343006 bytes.
+   0.790 Loading level.dat: 1202441 bytes.
+   0.791 Info Scenario.cpp:154: Map version 2.0.69-0
+   0.814 Blueprint storage "blueprint-storage-2.dat" was not found, trying to load previous version storage "blueprint-storage.dat"
+   0.816 Loading script.dat: 1222 bytes.
+   0.818 Checksum for script __level__/control.lua: 2722821277
+   0.820 Info UDPSocket.cpp:37: Opening socket at (IP ADDR:({0.0.0.0:34197}))
+   0.820 Hosting game at IP ADDR:({0.0.0.0:34197})
+   0.820 Info HttpSharedState.cpp:57: Downloading https://auth.factorio.com/generate-server-padlock-2?api_version=6
+   0.936 Info AuthServerConnector.cpp:112: Obtained serverPadlock for serverHash (9GQ1pyfIyUKcvI3vVOjOKYBU4I6ldsUN) from the auth server.
+   0.936 Info ServerMultiplayerManager.cpp:808: updateTick(144) changing state from(CreatingGame) to(InGame)
+   0.936 Info UDPSocket.cpp:49: Opening socket for broadcast
+   0.936 Error InterruptibleStdioStream.cpp:55: Got EOF on stdin; closing
+   0.936 Info RemoteCommandProcessor.cpp:126: Starting RCON interface at IP ADDR:({0.0.0.0:27015})
+   0.000 2025-10-26 12:35:38; Factorio 2.0.72 (build 84292, linux64, headless, space-age)
+   0.000 Operating system: Linux
+   0.000 Not rotating logs.
+   0.000 Program arguments: "/opt/factorio/bin/x64/factorio" "--config" "/factorio/config/config.ini" "--port" "34197" "--rcon-port" "27015" "--server-settings" "/factorio/config/server-settings.json" "--rcon-password" <private> "/factorio/config/rconpw" "2>/dev/null" "||" "echo" "defaultpass)"" "--mod-directory" "/factorio/mods" "--console-log" "/dev/stdout" "--no-log-rotation" "--start-server" "/factorio/saves/world-live.zip" 
+   0.000 Config path: /factorio/config/config.ini
+   0.000 Read data path: /opt/factorio/data
+   0.000 Write data path: /factorio [425681/478562MB]
+   0.000 Binaries path: /opt/factorio/bin
+   0.006 System info: [CPU: AMD Ryzen 5 6600H with Radeon Graphics, 12 cores, RAM: 15228 MB]
+   0.006 Environment: DISPLAY=<unset> WAYLAND_DISPLAY=<unset> DESKTOP_SESSION=<unset> XDG_SESSION_DESKTOP=<unset> XDG_CURRENT_DESKTOP=<unset> SDL_VIDEODRIVER=<unset> __GL_FSAA_MODE=<unset> __GL_LOG_MAX_ANISO=<unset> __GL_SYNC_TO_VBLANK=<unset> __GL_SORT_FBCONFIGS=<unset> __GL_YIELD=<unset>
+   0.006 Running in headless mode
+   0.006 Audio is disabled
+   0.007 Info ModManager.cpp:446: FeatureFlag expansion-shaders = true
+   0.007 Info ModManager.cpp:446: FeatureFlag freezing = true
+   0.007 Info ModManager.cpp:446: FeatureFlag quality = true
+   0.007 Info ModManager.cpp:446: FeatureFlag rail-bridges = true
+   0.007 Info ModManager.cpp:446: FeatureFlag segmented-units = true
+   0.007 Info ModManager.cpp:446: FeatureFlag space-travel = true
+   0.007 Info ModManager.cpp:446: FeatureFlag spoiling = true
+   0.009 Loading mod core 0.0.0 (data.lua)
+   0.019 Loading mod base 2.0.72 (data.lua)
+   0.127 Loading mod elevated-rails 2.0.72 (data.lua)
+   0.145 Loading mod quality 2.0.72 (data.lua)
+   0.156 Loading mod space-age 2.0.72 (data.lua)
+   0.318 Loading mod base 2.0.72 (data-updates.lua)
+   0.328 Loading mod quality 2.0.72 (data-updates.lua)
+   0.343 Loading mod space-age 2.0.72 (data-updates.lua)
+   0.415 Checksum for core: 3316885848
+   0.415 Checksum of base: 1879415942
+   0.415 Checksum of elevated-rails: 70351106
+   0.415 Checksum of quality: 1142589254
+   0.415 Checksum of space-age: 1510664043
+   0.694 Prototype list checksum: 3295867752
+   0.742 Info PlayerData.cpp:64: Local player-data.json available, timestamp 1761478436
+   0.742 Info PlayerData.cpp:71: Cloud player-data.json unavailable
+   0.743 Info GlobalContext.cpp:1294: Resetting config.
+   0.743 Factorio initialised
+   0.744 Info ServerSynchronizer.cpp:22: nextHeartbeatSequenceNumber(0) initialized Synchronizer nextTickClosureTick(0).
+   0.744 Info ServerMultiplayerManager.cpp:808: updateTick(18446744073709551615) changing state from(Ready) to(PreparedToHostGame)
+   0.744 Info ServerMultiplayerManager.cpp:808: updateTick(18446744073709551615) changing state from(PreparedToHostGame) to(CreatingGame)
+   0.744 Loading map /factorio/saves/world-live.zip: 1343006 bytes.
+   0.760 Loading level.dat: 1202441 bytes.
+   0.760 Info Scenario.cpp:154: Map version 2.0.69-0
+   0.784 Blueprint storage "blueprint-storage-2.dat" was not found, trying to load previous version storage "blueprint-storage.dat"
+   0.786 Loading script.dat: 1222 bytes.
+   0.788 Checksum for script __level__/control.lua: 2722821277
+   0.790 Info UDPSocket.cpp:37: Opening socket at (IP ADDR:({0.0.0.0:34197}))
+   0.790 Hosting game at IP ADDR:({0.0.0.0:34197})
+   0.790 Info HttpSharedState.cpp:57: Downloading https://auth.factorio.com/generate-server-padlock-2?api_version=6
+   0.910 Info AuthServerConnector.cpp:112: Obtained serverPadlock for serverHash (ogGAinsrbRgyj6RfBeUQmcQBjMrFPcwp) from the auth server.
+   0.910 Info ServerMultiplayerManager.cpp:808: updateTick(144) changing state from(CreatingGame) to(InGame)
+   0.910 Info UDPSocket.cpp:49: Opening socket for broadcast
+   0.910 Error InterruptibleStdioStream.cpp:55: Got EOF on stdin; closing
+   0.910 Info RemoteCommandProcessor.cpp:126: Starting RCON interface at IP ADDR:({0.0.0.0:27015})
+   0.000 2025-10-26 12:36:38; Factorio 2.0.72 (build 84292, linux64, headless, space-age)
+   0.000 Operating system: Linux
+   0.000 Not rotating logs.
+   0.000 Program arguments: "/opt/factorio/bin/x64/factorio" "--config" "/factorio/config/config.ini" "--port" "34197" "--rcon-port" "27015" "--server-settings" "/factorio/config/server-settings.json" "--rcon-password" <private> "/factorio/config/rconpw" "2>/dev/null" "||" "echo" "defaultpass)"" "--mod-directory" "/factorio/mods" "--console-log" "/dev/stdout" "--no-log-rotation" "--start-server" "/factorio/saves/world-live.zip" 
+   0.000 Config path: /factorio/config/config.ini
+   0.000 Read data path: /opt/factorio/data
+   0.000 Write data path: /factorio [425668/478562MB]
+   0.000 Binaries path: /opt/factorio/bin
+   0.006 System info: [CPU: AMD Ryzen 5 6600H with Radeon Graphics, 12 cores, RAM: 15228 MB]
+   0.006 Environment: DISPLAY=<unset> WAYLAND_DISPLAY=<unset> DESKTOP_SESSION=<unset> XDG_SESSION_DESKTOP=<unset> XDG_CURRENT_DESKTOP=<unset> SDL_VIDEODRIVER=<unset> __GL_FSAA_MODE=<unset> __GL_LOG_MAX_ANISO=<unset> __GL_SYNC_TO_VBLANK=<unset> __GL_SORT_FBCONFIGS=<unset> __GL_YIELD=<unset>
+   0.006 Running in headless mode
+   0.006 Audio is disabled
+   0.007 Info ModManager.cpp:446: FeatureFlag expansion-shaders = true
+   0.007 Info ModManager.cpp:446: FeatureFlag freezing = true
+   0.007 Info ModManager.cpp:446: FeatureFlag quality = true
+   0.007 Info ModManager.cpp:446: FeatureFlag rail-bridges = true
+   0.007 Info ModManager.cpp:446: FeatureFlag segmented-units = true
+   0.007 Info ModManager.cpp:446: FeatureFlag space-travel = true
+   0.007 Info ModManager.cpp:446: FeatureFlag spoiling = true
+   0.009 Loading mod core 0.0.0 (data.lua)
+   0.018 Loading mod base 2.0.72 (data.lua)
+   0.118 Loading mod elevated-rails 2.0.72 (data.lua)
+   0.135 Loading mod quality 2.0.72 (data.lua)
+   0.145 Loading mod space-age 2.0.72 (data.lua)
+   0.312 Loading mod base 2.0.72 (data-updates.lua)
+   0.327 Loading mod quality 2.0.72 (data-updates.lua)
+   0.352 Loading mod space-age 2.0.72 (data-updates.lua)
+   0.415 Checksum for core: 3316885848
+   0.415 Checksum of base: 1879415942
+   0.415 Checksum of elevated-rails: 70351106
+   0.415 Checksum of quality: 1142589254
+   0.415 Checksum of space-age: 1510664043
+   0.702 Prototype list checksum: 3295867752
+   0.750 Info PlayerData.cpp:64: Local player-data.json available, timestamp 1761478436
+   0.750 Info PlayerData.cpp:71: Cloud player-data.json unavailable
+   0.751 Info GlobalContext.cpp:1294: Resetting config.
+   0.751 Factorio initialised
+   0.752 Info ServerSynchronizer.cpp:22: nextHeartbeatSequenceNumber(0) initialized Synchronizer nextTickClosureTick(0).
+   0.752 Info ServerMultiplayerManager.cpp:808: updateTick(18446744073709551615) changing state from(Ready) to(PreparedToHostGame)
+   0.752 Info ServerMultiplayerManager.cpp:808: updateTick(18446744073709551615) changing state from(PreparedToHostGame) to(CreatingGame)
+   0.752 Loading map /factorio/saves/world-live.zip: 1343006 bytes.
+   0.767 Loading level.dat: 1202441 bytes.
+   0.767 Info Scenario.cpp:154: Map version 2.0.69-0
+   0.791 Blueprint storage "blueprint-storage-2.dat" was not found, trying to load previous version storage "blueprint-storage.dat"
+   0.793 Loading script.dat: 1222 bytes.
+   0.795 Checksum for script __level__/control.lua: 2722821277
+   0.797 Info UDPSocket.cpp:37: Opening socket at (IP ADDR:({0.0.0.0:34197}))
+   0.797 Hosting game at IP ADDR:({0.0.0.0:34197})
+   0.797 Info HttpSharedState.cpp:57: Downloading https://auth.factorio.com/generate-server-padlock-2?api_version=6
+   0.917 Info AuthServerConnector.cpp:112: Obtained serverPadlock for serverHash (McifoozHX7shEIZOdFCSqq8g60Qk1Yrc) from the auth server.
+   0.917 Info ServerMultiplayerManager.cpp:808: updateTick(144) changing state from(CreatingGame) to(InGame)
+   0.917 Info UDPSocket.cpp:49: Opening socket for broadcast
+   0.918 Error InterruptibleStdioStream.cpp:55: Got EOF on stdin; closing
+   0.918 Info RemoteCommandProcessor.cpp:126: Starting RCON interface at IP ADDR:({0.0.0.0:27015})
+   0.000 2025-10-26 12:56:06; Factorio 2.0.72 (build 84292, linux64, headless, space-age)
+   0.000 Operating system: Linux
+   0.000 Not rotating logs.
+   0.000 Program arguments: "/opt/factorio/bin/x64/factorio" "--config" "/factorio/config/config.ini" "--port" "34197" "--rcon-port" "27015" "--server-settings" "/factorio/config/server-settings.json" "--rcon-password" <private> "/factorio/config/rconpw" "2>/dev/null" "||" "echo" "defaultpass)"" "--mod-directory" "/factorio/mods" "--console-log" "/dev/stdout" "--no-log-rotation" "--start-server" "/factorio/saves/world-live.zip" 
+   0.000 Config path: /factorio/config/config.ini
+   0.000 Read data path: /opt/factorio/data
+   0.000 Write data path: /factorio [425604/478562MB]
+   0.000 Binaries path: /opt/factorio/bin
+   0.006 System info: [CPU: AMD Ryzen 5 6600H with Radeon Graphics, 12 cores, RAM: 15228 MB]
+   0.006 Environment: DISPLAY=<unset> WAYLAND_DISPLAY=<unset> DESKTOP_SESSION=<unset> XDG_SESSION_DESKTOP=<unset> XDG_CURRENT_DESKTOP=<unset> SDL_VIDEODRIVER=<unset> __GL_FSAA_MODE=<unset> __GL_LOG_MAX_ANISO=<unset> __GL_SYNC_TO_VBLANK=<unset> __GL_SORT_FBCONFIGS=<unset> __GL_YIELD=<unset>
+   0.007 Running in headless mode
+   0.007 Audio is disabled
+   0.007 Info ModManager.cpp:446: FeatureFlag expansion-shaders = true
+   0.007 Info ModManager.cpp:446: FeatureFlag freezing = true
+   0.007 Info ModManager.cpp:446: FeatureFlag quality = true
+   0.007 Info ModManager.cpp:446: FeatureFlag rail-bridges = true
+   0.007 Info ModManager.cpp:446: FeatureFlag segmented-units = true
+   0.007 Info ModManager.cpp:446: FeatureFlag space-travel = true
+   0.007 Info ModManager.cpp:446: FeatureFlag spoiling = true
+   0.009 Loading mod core 0.0.0 (data.lua)
+   0.018 Loading mod base 2.0.72 (data.lua)
+   0.119 Loading mod elevated-rails 2.0.72 (data.lua)
+   0.136 Loading mod quality 2.0.72 (data.lua)
+   0.146 Loading mod space-age 2.0.72 (data.lua)
+   0.313 Loading mod base 2.0.72 (data-updates.lua)
+   0.328 Loading mod quality 2.0.72 (data-updates.lua)
+   0.357 Loading mod space-age 2.0.72 (data-updates.lua)
+   0.418 Checksum for core: 3316885848
+   0.418 Checksum of base: 1879415942
+   0.418 Checksum of elevated-rails: 70351106
+   0.418 Checksum of quality: 1142589254
+   0.418 Checksum of space-age: 1510664043
+   0.704 Prototype list checksum: 3295867752
+   0.755 Info PlayerData.cpp:64: Local player-data.json available, timestamp 1761478436
+   0.755 Info PlayerData.cpp:71: Cloud player-data.json unavailable
+   0.756 Info GlobalContext.cpp:1294: Resetting config.
+   0.757 Factorio initialised
+   0.757 Info ServerSynchronizer.cpp:22: nextHeartbeatSequenceNumber(0) initialized Synchronizer nextTickClosureTick(0).
+   0.757 Info ServerMultiplayerManager.cpp:808: updateTick(18446744073709551615) changing state from(Ready) to(PreparedToHostGame)
+   0.757 Info ServerMultiplayerManager.cpp:808: updateTick(18446744073709551615) changing state from(PreparedToHostGame) to(CreatingGame)
+   0.757 Loading map /factorio/saves/world-live.zip: 1343006 bytes.
+   0.773 Loading level.dat: 1202441 bytes.
+   0.773 Info Scenario.cpp:154: Map version 2.0.69-0
+   0.795 Blueprint storage "blueprint-storage-2.dat" was not found, trying to load previous version storage "blueprint-storage.dat"
+   0.797 Loading script.dat: 1222 bytes.
+   0.799 Checksum for script __level__/control.lua: 2722821277
+   0.801 Info UDPSocket.cpp:37: Opening socket at (IP ADDR:({0.0.0.0:34197}))
+   0.801 Hosting game at IP ADDR:({0.0.0.0:34197})
+   0.801 Info HttpSharedState.cpp:57: Downloading https://auth.factorio.com/generate-server-padlock-2?api_version=6
+   0.928 Info AuthServerConnector.cpp:112: Obtained serverPadlock for serverHash (votJX1yAIg2g7N6WaSpCq4BLpLnDo9wL) from the auth server.
+   0.928 Info ServerMultiplayerManager.cpp:808: updateTick(144) changing state from(CreatingGame) to(InGame)
+   0.928 Info UDPSocket.cpp:49: Opening socket for broadcast
+   0.928 Error InterruptibleStdioStream.cpp:55: Got EOF on stdin; closing
+   0.928 Info RemoteCommandProcessor.cpp:126: Starting RCON interface at IP ADDR:({0.0.0.0:27015})
+   0.000 2025-10-26 13:00:32; Factorio 2.0.72 (build 84292, linux64, headless, space-age)
+   0.000 Operating system: Linux
+   0.000 Not rotating logs.
+   0.000 Program arguments: "/opt/factorio/bin/x64/factorio" "--config" "/factorio/config/config.ini" "--port" "34197" "--rcon-port" "27015" "--server-settings" "/factorio/config/server-settings.json" "--rcon-password" <private> "/factorio/config/rconpw" "2>/dev/null" "||" "echo" "defaultpass)"" "--mod-directory" "/factorio/mods" "--console-log" "/dev/stdout" "--no-log-rotation" "--start-server" "/factorio/saves/world-live.zip" 
+   0.000 Config path: /factorio/config/config.ini
+   0.000 Read data path: /opt/factorio/data
+   0.000 Write data path: /factorio [425592/478562MB]
+   0.000 Binaries path: /opt/factorio/bin
+   0.005 System info: [CPU: AMD Ryzen 5 6600H with Radeon Graphics, 12 cores, RAM: 15228 MB]
+   0.005 Environment: DISPLAY=<unset> WAYLAND_DISPLAY=<unset> DESKTOP_SESSION=<unset> XDG_SESSION_DESKTOP=<unset> XDG_CURRENT_DESKTOP=<unset> SDL_VIDEODRIVER=<unset> __GL_FSAA_MODE=<unset> __GL_LOG_MAX_ANISO=<unset> __GL_SYNC_TO_VBLANK=<unset> __GL_SORT_FBCONFIGS=<unset> __GL_YIELD=<unset>
+   0.006 Running in headless mode
+   0.006 Audio is disabled
+   0.006 Info ModManager.cpp:446: FeatureFlag expansion-shaders = true
+   0.006 Info ModManager.cpp:446: FeatureFlag freezing = true
+   0.006 Info ModManager.cpp:446: FeatureFlag quality = true
+   0.006 Info ModManager.cpp:446: FeatureFlag rail-bridges = true
+   0.006 Info ModManager.cpp:446: FeatureFlag segmented-units = true
+   0.006 Info ModManager.cpp:446: FeatureFlag space-travel = true
+   0.006 Info ModManager.cpp:446: FeatureFlag spoiling = true
+   0.008 Loading mod core 0.0.0 (data.lua)
+   0.018 Loading mod base 2.0.72 (data.lua)
+   0.118 Loading mod elevated-rails 2.0.72 (data.lua)
+   0.144 Loading mod quality 2.0.72 (data.lua)
+   0.153 Loading mod space-age 2.0.72 (data.lua)
+   0.307 Loading mod base 2.0.72 (data-updates.lua)
+   0.317 Loading mod quality 2.0.72 (data-updates.lua)
+   0.332 Loading mod space-age 2.0.72 (data-updates.lua)
+   0.400 Checksum for core: 3316885848
+   0.400 Checksum of base: 1879415942
+   0.400 Checksum of elevated-rails: 70351106
+   0.400 Checksum of quality: 1142589254
+   0.400 Checksum of space-age: 1510664043
+   0.685 Prototype list checksum: 3295867752
+   0.736 Info PlayerData.cpp:64: Local player-data.json available, timestamp 1761478436
+   0.736 Info PlayerData.cpp:71: Cloud player-data.json unavailable
+   0.736 Info GlobalContext.cpp:1294: Resetting config.
+   0.737 Factorio initialised
+   0.737 Info ServerSynchronizer.cpp:22: nextHeartbeatSequenceNumber(0) initialized Synchronizer nextTickClosureTick(0).
+   0.737 Info ServerMultiplayerManager.cpp:808: updateTick(18446744073709551615) changing state from(Ready) to(PreparedToHostGame)
+   0.737 Info ServerMultiplayerManager.cpp:808: updateTick(18446744073709551615) changing state from(PreparedToHostGame) to(CreatingGame)
+   0.737 Loading map /factorio/saves/world-live.zip: 1343006 bytes.
+   0.753 Loading level.dat: 1202441 bytes.
+   0.753 Info Scenario.cpp:154: Map version 2.0.69-0
+   0.776 Blueprint storage "blueprint-storage-2.dat" was not found, trying to load previous version storage "blueprint-storage.dat"
+   0.779 Loading script.dat: 1222 bytes.
+   0.780 Checksum for script __level__/control.lua: 2722821277
+   0.782 Info UDPSocket.cpp:37: Opening socket at (IP ADDR:({0.0.0.0:34197}))
+   0.782 Hosting game at IP ADDR:({0.0.0.0:34197})
+   0.782 Info HttpSharedState.cpp:57: Downloading https://auth.factorio.com/generate-server-padlock-2?api_version=6
+   0.898 Info AuthServerConnector.cpp:112: Obtained serverPadlock for serverHash (Yi5dK2kSuN6IjbGVObra2cV6r7vghIpl) from the auth server.
+   0.898 Info ServerMultiplayerManager.cpp:808: updateTick(144) changing state from(CreatingGame) to(InGame)
+   0.898 Info UDPSocket.cpp:49: Opening socket for broadcast
+   0.898 Error InterruptibleStdioStream.cpp:55: Got EOF on stdin; closing
+   0.898 Info RemoteCommandProcessor.cpp:126: Starting RCON interface at IP ADDR:({0.0.0.0:27015})
+   0.000 2025-10-26 13:01:49; Factorio 2.0.72 (build 84292, linux64, headless, space-age)
+   0.000 Operating system: Linux
+   0.000 Not rotating logs.
+   0.000 Program arguments: "/opt/factorio/bin/x64/factorio" "--config" "/factorio/config/config.ini" "--port" "34197" "--rcon-port" "27015" "--server-settings" "/factorio/config/server-settings.json" "--rcon-password" <private> "/factorio/config/rconpw" "2>/dev/null" "||" "echo" "defaultpass)"" "--mod-directory" "/factorio/mods" "--console-log" "/dev/stdout" "--no-log-rotation" "--start-server" "/factorio/saves/world-live.zip" 
+   0.000 Config path: /factorio/config/config.ini
+   0.000 Read data path: /opt/factorio/data
+   0.000 Write data path: /factorio [425579/478562MB]
+   0.000 Binaries path: /opt/factorio/bin
+   0.005 System info: [CPU: AMD Ryzen 5 6600H with Radeon Graphics, 12 cores, RAM: 15228 MB]
+   0.005 Environment: DISPLAY=<unset> WAYLAND_DISPLAY=<unset> DESKTOP_SESSION=<unset> XDG_SESSION_DESKTOP=<unset> XDG_CURRENT_DESKTOP=<unset> SDL_VIDEODRIVER=<unset> __GL_FSAA_MODE=<unset> __GL_LOG_MAX_ANISO=<unset> __GL_SYNC_TO_VBLANK=<unset> __GL_SORT_FBCONFIGS=<unset> __GL_YIELD=<unset>
+   0.006 Running in headless mode
+   0.006 Audio is disabled
+   0.006 Info ModManager.cpp:446: FeatureFlag expansion-shaders = true
+   0.006 Info ModManager.cpp:446: FeatureFlag freezing = true
+   0.006 Info ModManager.cpp:446: FeatureFlag quality = true
+   0.006 Info ModManager.cpp:446: FeatureFlag rail-bridges = true
+   0.006 Info ModManager.cpp:446: FeatureFlag segmented-units = true
+   0.006 Info ModManager.cpp:446: FeatureFlag space-travel = true
+   0.006 Info ModManager.cpp:446: FeatureFlag spoiling = true
+   0.009 Loading mod core 0.0.0 (data.lua)
+   0.018 Loading mod base 2.0.72 (data.lua)
+   0.118 Loading mod elevated-rails 2.0.72 (data.lua)
+   0.136 Loading mod quality 2.0.72 (data.lua)
+   0.146 Loading mod space-age 2.0.72 (data.lua)
+   0.304 Loading mod base 2.0.72 (data-updates.lua)
+   0.314 Loading mod quality 2.0.72 (data-updates.lua)
+   0.329 Loading mod space-age 2.0.72 (data-updates.lua)
+   0.397 Checksum for core: 3316885848
+   0.397 Checksum of base: 1879415942
+   0.397 Checksum of elevated-rails: 70351106
+   0.397 Checksum of quality: 1142589254
+   0.397 Checksum of space-age: 1510664043
+   0.680 Prototype list checksum: 3295867752
+   0.728 Info PlayerData.cpp:64: Local player-data.json available, timestamp 1761478436
+   0.728 Info PlayerData.cpp:71: Cloud player-data.json unavailable
+   0.729 Info GlobalContext.cpp:1294: Resetting config.
+   0.729 Factorio initialised
+   0.730 Info ServerSynchronizer.cpp:22: nextHeartbeatSequenceNumber(0) initialized Synchronizer nextTickClosureTick(0).
+   0.730 Info ServerMultiplayerManager.cpp:808: updateTick(18446744073709551615) changing state from(Ready) to(PreparedToHostGame)
+   0.730 Info ServerMultiplayerManager.cpp:808: updateTick(18446744073709551615) changing state from(PreparedToHostGame) to(CreatingGame)
+   0.730 Loading map /factorio/saves/world-live.zip: 1343006 bytes.
+   0.747 Loading level.dat: 1202441 bytes.
+   0.747 Info Scenario.cpp:154: Map version 2.0.69-0
+   0.771 Blueprint storage "blueprint-storage-2.dat" was not found, trying to load previous version storage "blueprint-storage.dat"
+   0.774 Loading script.dat: 1222 bytes.
+   0.776 Checksum for script __level__/control.lua: 2722821277
+   0.778 Info UDPSocket.cpp:37: Opening socket at (IP ADDR:({0.0.0.0:34197}))
+   0.778 Hosting game at IP ADDR:({0.0.0.0:34197})
+   0.778 Info HttpSharedState.cpp:57: Downloading https://auth.factorio.com/generate-server-padlock-2?api_version=6
+   0.898 Info AuthServerConnector.cpp:112: Obtained serverPadlock for serverHash (mER7tG1godiWjGLT9f7HsjPdx876sfhe) from the auth server.
+   0.898 Info ServerMultiplayerManager.cpp:808: updateTick(144) changing state from(CreatingGame) to(InGame)
+   0.898 Info UDPSocket.cpp:49: Opening socket for broadcast
+   0.898 Error InterruptibleStdioStream.cpp:55: Got EOF on stdin; closing
+   0.898 Info RemoteCommandProcessor.cpp:126: Starting RCON interface at IP ADDR:({0.0.0.0:27015})
+   0.000 2025-10-26 13:23:49; Factorio 2.0.72 (build 84292, linux64, headless, space-age)
+   0.000 Operating system: Linux
+   0.000 Not rotating logs.
+   0.000 Program arguments: "/opt/factorio/bin/x64/factorio" "--config" "/factorio/config/config.ini" "--port" "34197" "--rcon-port" "27015" "--server-settings" "/factorio/config/server-settings.json" "--rcon-password" <private> "/factorio/config/rconpw" "2>/dev/null" "||" "echo" "defaultpass)"" "--mod-directory" "/factorio/mods" "--console-log" "/dev/stdout" "--no-log-rotation" "--start-server" "/factorio/saves/world-live.zip" 
+   0.000 Config path: /factorio/config/config.ini
+   0.000 Read data path: /opt/factorio/data
+   0.000 Write data path: /factorio [425566/478562MB]
+   0.000 Binaries path: /opt/factorio/bin
+   0.005 System info: [CPU: AMD Ryzen 5 6600H with Radeon Graphics, 12 cores, RAM: 15228 MB]
+   0.005 Environment: DISPLAY=<unset> WAYLAND_DISPLAY=<unset> DESKTOP_SESSION=<unset> XDG_SESSION_DESKTOP=<unset> XDG_CURRENT_DESKTOP=<unset> SDL_VIDEODRIVER=<unset> __GL_FSAA_MODE=<unset> __GL_LOG_MAX_ANISO=<unset> __GL_SYNC_TO_VBLANK=<unset> __GL_SORT_FBCONFIGS=<unset> __GL_YIELD=<unset>
+   0.006 Running in headless mode
+   0.006 Audio is disabled
+   0.006 Info ModManager.cpp:446: FeatureFlag expansion-shaders = true
+   0.006 Info ModManager.cpp:446: FeatureFlag freezing = true
+   0.006 Info ModManager.cpp:446: FeatureFlag quality = true
+   0.006 Info ModManager.cpp:446: FeatureFlag rail-bridges = true
+   0.006 Info ModManager.cpp:446: FeatureFlag segmented-units = true
+   0.006 Info ModManager.cpp:446: FeatureFlag space-travel = true
+   0.006 Info ModManager.cpp:446: FeatureFlag spoiling = true
+   0.008 Loading mod core 0.0.0 (data.lua)
+   0.018 Loading mod base 2.0.72 (data.lua)
+   0.122 Loading mod elevated-rails 2.0.72 (data.lua)
+   0.138 Loading mod quality 2.0.72 (data.lua)
+   0.148 Loading mod space-age 2.0.72 (data.lua)
+   0.307 Loading mod base 2.0.72 (data-updates.lua)
+   0.317 Loading mod quality 2.0.72 (data-updates.lua)
+   0.332 Loading mod space-age 2.0.72 (data-updates.lua)
+   0.401 Checksum for core: 3316885848
+   0.401 Checksum of base: 1879415942
+   0.401 Checksum of elevated-rails: 70351106
+   0.401 Checksum of quality: 1142589254
+   0.401 Checksum of space-age: 1510664043
+   0.684 Prototype list checksum: 3295867752
+   0.733 Info PlayerData.cpp:64: Local player-data.json available, timestamp 1761478436
+   0.733 Info PlayerData.cpp:71: Cloud player-data.json unavailable
+   0.734 Info GlobalContext.cpp:1294: Resetting config.
+   0.734 Factorio initialised
+   0.734 Info ServerSynchronizer.cpp:22: nextHeartbeatSequenceNumber(0) initialized Synchronizer nextTickClosureTick(0).
+   0.734 Info ServerMultiplayerManager.cpp:808: updateTick(18446744073709551615) changing state from(Ready) to(PreparedToHostGame)
+   0.734 Info ServerMultiplayerManager.cpp:808: updateTick(18446744073709551615) changing state from(PreparedToHostGame) to(CreatingGame)
+   0.735 Loading map /factorio/saves/world-live.zip: 1343006 bytes.
+   0.751 Loading level.dat: 1202441 bytes.
+   0.751 Info Scenario.cpp:154: Map version 2.0.69-0
+   0.774 Blueprint storage "blueprint-storage-2.dat" was not found, trying to load previous version storage "blueprint-storage.dat"
+   0.777 Loading script.dat: 1222 bytes.
+   0.779 Checksum for script __level__/control.lua: 2722821277
+   0.781 Info UDPSocket.cpp:37: Opening socket at (IP ADDR:({0.0.0.0:34197}))
+   0.781 Hosting game at IP ADDR:({0.0.0.0:34197})
+   0.781 Info HttpSharedState.cpp:57: Downloading https://auth.factorio.com/generate-server-padlock-2?api_version=6
+   0.898 Info AuthServerConnector.cpp:112: Obtained serverPadlock for serverHash (OLfgSNWLPZgC1eK4BtUMpiDwJPuDX9g5) from the auth server.
+   0.898 Info ServerMultiplayerManager.cpp:808: updateTick(144) changing state from(CreatingGame) to(InGame)
+   0.898 Info UDPSocket.cpp:49: Opening socket for broadcast
+   0.898 Error InterruptibleStdioStream.cpp:55: Got EOF on stdin; closing
+   0.898 Info RemoteCommandProcessor.cpp:126: Starting RCON interface at IP ADDR:({0.0.0.0:27015})
+   0.000 2025-10-26 13:24:09; Factorio 2.0.72 (build 84292, linux64, headless, space-age)
+   0.000 Operating system: Linux
+   0.000 Not rotating logs.
+   0.000 Program arguments: "/opt/factorio/bin/x64/factorio" "--config" "/factorio/config/config.ini" "--port" "34197" "--rcon-port" "27015" "--server-settings" "/factorio/config/server-settings.json" "--rcon-password" <private> "/factorio/config/rconpw" "2>/dev/null" "||" "echo" "defaultpass)"" "--mod-directory" "/factorio/mods" "--console-log" "/dev/stdout" "--no-log-rotation" "--start-server" "/factorio/saves/world-live.zip" 
+   0.000 Config path: /factorio/config/config.ini
+   0.000 Read data path: /opt/factorio/data
+   0.000 Write data path: /factorio [425564/478562MB]
+   0.000 Binaries path: /opt/factorio/bin
+   0.005 System info: [CPU: AMD Ryzen 5 6600H with Radeon Graphics, 12 cores, RAM: 15228 MB]
+   0.005 Environment: DISPLAY=<unset> WAYLAND_DISPLAY=<unset> DESKTOP_SESSION=<unset> XDG_SESSION_DESKTOP=<unset> XDG_CURRENT_DESKTOP=<unset> SDL_VIDEODRIVER=<unset> __GL_FSAA_MODE=<unset> __GL_LOG_MAX_ANISO=<unset> __GL_SYNC_TO_VBLANK=<unset> __GL_SORT_FBCONFIGS=<unset> __GL_YIELD=<unset>
+   0.006 Running in headless mode
+   0.006 Audio is disabled
+   0.006 Info ModManager.cpp:446: FeatureFlag expansion-shaders = true
+   0.006 Info ModManager.cpp:446: FeatureFlag freezing = true
+   0.006 Info ModManager.cpp:446: FeatureFlag quality = true
+   0.006 Info ModManager.cpp:446: FeatureFlag rail-bridges = true
+   0.006 Info ModManager.cpp:446: FeatureFlag segmented-units = true
+   0.006 Info ModManager.cpp:446: FeatureFlag space-travel = true
+   0.006 Info ModManager.cpp:446: FeatureFlag spoiling = true
+   0.008 Loading mod core 0.0.0 (data.lua)
+   0.018 Loading mod base 2.0.72 (data.lua)
+   0.121 Loading mod elevated-rails 2.0.72 (data.lua)
+   0.139 Loading mod quality 2.0.72 (data.lua)
+   0.149 Loading mod space-age 2.0.72 (data.lua)
+   0.316 Loading mod base 2.0.72 (data-updates.lua)
+   0.325 Loading mod quality 2.0.72 (data-updates.lua)
+   0.339 Loading mod space-age 2.0.72 (data-updates.lua)
+   0.411 Checksum for core: 3316885848
+   0.411 Checksum of base: 1879415942
+   0.411 Checksum of elevated-rails: 70351106
+   0.411 Checksum of quality: 1142589254
+   0.411 Checksum of space-age: 1510664043
+   0.695 Prototype list checksum: 3295867752
+   0.742 Info PlayerData.cpp:64: Local player-data.json available, timestamp 1761478436
+   0.742 Info PlayerData.cpp:71: Cloud player-data.json unavailable
+   0.743 Info GlobalContext.cpp:1294: Resetting config.
+   0.743 Factorio initialised
+   0.744 Info ServerSynchronizer.cpp:22: nextHeartbeatSequenceNumber(0) initialized Synchronizer nextTickClosureTick(0).
+   0.744 Info ServerMultiplayerManager.cpp:808: updateTick(18446744073709551615) changing state from(Ready) to(PreparedToHostGame)
+   0.744 Info ServerMultiplayerManager.cpp:808: updateTick(18446744073709551615) changing state from(PreparedToHostGame) to(CreatingGame)
+   0.744 Loading map /factorio/saves/world-live.zip: 1343006 bytes.
+   0.759 Loading level.dat: 1202441 bytes.
+   0.759 Info Scenario.cpp:154: Map version 2.0.69-0
+   0.782 Blueprint storage "blueprint-storage-2.dat" was not found, trying to load previous version storage "blueprint-storage.dat"
+   0.786 Loading script.dat: 1222 bytes.
+   0.788 Checksum for script __level__/control.lua: 2722821277
+   0.789 Info UDPSocket.cpp:37: Opening socket at (IP ADDR:({0.0.0.0:34197}))
+   0.789 Hosting game at IP ADDR:({0.0.0.0:34197})
+   0.789 Info HttpSharedState.cpp:57: Downloading https://auth.factorio.com/generate-server-padlock-2?api_version=6
+   0.875 Info AuthServerConnector.cpp:112: Obtained serverPadlock for serverHash (a6e0FL6rT9DQ7PKIy9siWViwM2Ha1YCn) from the auth server.
+   0.875 Info ServerMultiplayerManager.cpp:808: updateTick(144) changing state from(CreatingGame) to(InGame)
+   0.875 Info UDPSocket.cpp:49: Opening socket for broadcast
+   0.875 Error InterruptibleStdioStream.cpp:55: Got EOF on stdin; closing
+   0.875 Info RemoteCommandProcessor.cpp:126: Starting RCON interface at IP ADDR:({0.0.0.0:27015})
+   0.000 2025-10-26 13:25:59; Factorio 2.0.72 (build 84292, linux64, headless, space-age)
+   0.000 Operating system: Linux
+   0.000 Not rotating logs.
+   0.000 Program arguments: "/opt/factorio/bin/x64/factorio" "--config" "/factorio/config/config.ini" "--port" "34197" "--rcon-port" "27015" "--server-settings" "/factorio/config/server-settings.json" "--rcon-password" <private> "/factorio/config/rconpw" "2>/dev/null" "||" "echo" "defaultpass)"" "--mod-directory" "/factorio/mods" "--console-log" "/dev/stdout" "--no-log-rotation" "--start-server" "/factorio/saves/world-live.zip" 
+   0.000 Config path: /factorio/config/config.ini
+   0.000 Read data path: /opt/factorio/data
+   0.000 Write data path: /factorio [425551/478562MB]
+   0.000 Binaries path: /opt/factorio/bin
+   0.005 System info: [CPU: AMD Ryzen 5 6600H with Radeon Graphics, 12 cores, RAM: 15228 MB]
+   0.005 Environment: DISPLAY=<unset> WAYLAND_DISPLAY=<unset> DESKTOP_SESSION=<unset> XDG_SESSION_DESKTOP=<unset> XDG_CURRENT_DESKTOP=<unset> SDL_VIDEODRIVER=<unset> __GL_FSAA_MODE=<unset> __GL_LOG_MAX_ANISO=<unset> __GL_SYNC_TO_VBLANK=<unset> __GL_SORT_FBCONFIGS=<unset> __GL_YIELD=<unset>
+   0.006 Running in headless mode
+   0.006 Audio is disabled
+   0.006 Info ModManager.cpp:446: FeatureFlag expansion-shaders = true
+   0.006 Info ModManager.cpp:446: FeatureFlag freezing = true
+   0.006 Info ModManager.cpp:446: FeatureFlag quality = true
+   0.006 Info ModManager.cpp:446: FeatureFlag rail-bridges = true
+   0.006 Info ModManager.cpp:446: FeatureFlag segmented-units = true
+   0.006 Info ModManager.cpp:446: FeatureFlag space-travel = true
+   0.006 Info ModManager.cpp:446: FeatureFlag spoiling = true
+   0.009 Loading mod core 0.0.0 (data.lua)
+   0.018 Loading mod base 2.0.72 (data.lua)
+   0.120 Loading mod elevated-rails 2.0.72 (data.lua)
+   0.138 Loading mod quality 2.0.72 (data.lua)
+   0.149 Loading mod space-age 2.0.72 (data.lua)
+   0.315 Loading mod base 2.0.72 (data-updates.lua)
+   0.326 Loading mod quality 2.0.72 (data-updates.lua)
+   0.340 Loading mod space-age 2.0.72 (data-updates.lua)
+   0.413 Checksum for core: 3316885848
+   0.413 Checksum of base: 1879415942
+   0.413 Checksum of elevated-rails: 70351106
+   0.413 Checksum of quality: 1142589254
+   0.413 Checksum of space-age: 1510664043
+   0.697 Prototype list checksum: 3295867752
+   0.748 Info PlayerData.cpp:64: Local player-data.json available, timestamp 1761478436
+   0.748 Info PlayerData.cpp:71: Cloud player-data.json unavailable
+   0.749 Info GlobalContext.cpp:1294: Resetting config.
+   0.749 Factorio initialised
+   0.749 Info ServerSynchronizer.cpp:22: nextHeartbeatSequenceNumber(0) initialized Synchronizer nextTickClosureTick(0).
+   0.749 Info ServerMultiplayerManager.cpp:808: updateTick(18446744073709551615) changing state from(Ready) to(PreparedToHostGame)
+   0.749 Info ServerMultiplayerManager.cpp:808: updateTick(18446744073709551615) changing state from(PreparedToHostGame) to(CreatingGame)
+   0.750 Loading map /factorio/saves/world-live.zip: 1343006 bytes.
+   0.765 Loading level.dat: 1202441 bytes.
+   0.765 Info Scenario.cpp:154: Map version 2.0.69-0
+   0.788 Blueprint storage "blueprint-storage-2.dat" was not found, trying to load previous version storage "blueprint-storage.dat"
+   0.790 Loading script.dat: 1222 bytes.
+   0.792 Checksum for script __level__/control.lua: 2722821277
+   0.793 Info UDPSocket.cpp:37: Opening socket at (IP ADDR:({0.0.0.0:34197}))
+   0.794 Hosting game at IP ADDR:({0.0.0.0:34197})
+   0.794 Info HttpSharedState.cpp:57: Downloading https://auth.factorio.com/generate-server-padlock-2?api_version=6
+   0.934 Info AuthServerConnector.cpp:112: Obtained serverPadlock for serverHash (IHGeDGuMuClVUL8rDL53CxVIgnAHSIR9) from the auth server.
+   0.934 Info ServerMultiplayerManager.cpp:808: updateTick(144) changing state from(CreatingGame) to(InGame)
+   0.934 Info UDPSocket.cpp:49: Opening socket for broadcast
+   0.934 Error InterruptibleStdioStream.cpp:55: Got EOF on stdin; closing
+   0.934 Info RemoteCommandProcessor.cpp:126: Starting RCON interface at IP ADDR:({0.0.0.0:27015})
+   0.000 2025-10-26 13:27:39; Factorio 2.0.72 (build 84292, linux64, headless, space-age)
+   0.000 Operating system: Linux
+   0.000 Not rotating logs.
+   0.000 Program arguments: "/opt/factorio/bin/x64/factorio" "--config" "/factorio/config/config.ini" "--port" "34197" "--rcon-port" "27015" "--server-settings" "/factorio/config/server-settings.json" "--rcon-password" <private> "/factorio/config/rconpw" "2>/dev/null" "||" "echo" "defaultpass)"" "--mod-directory" "/factorio/mods" "--console-log" "/dev/stdout" "--no-log-rotation" "--start-server" "/factorio/saves/world-live.zip" 
+   0.000 Config path: /factorio/config/config.ini
+   0.000 Read data path: /opt/factorio/data
+   0.000 Write data path: /factorio [425550/478562MB]
+   0.000 Binaries path: /opt/factorio/bin
+   0.005 System info: [CPU: AMD Ryzen 5 6600H with Radeon Graphics, 12 cores, RAM: 15228 MB]
+   0.005 Environment: DISPLAY=<unset> WAYLAND_DISPLAY=<unset> DESKTOP_SESSION=<unset> XDG_SESSION_DESKTOP=<unset> XDG_CURRENT_DESKTOP=<unset> SDL_VIDEODRIVER=<unset> __GL_FSAA_MODE=<unset> __GL_LOG_MAX_ANISO=<unset> __GL_SYNC_TO_VBLANK=<unset> __GL_SORT_FBCONFIGS=<unset> __GL_YIELD=<unset>
+   0.006 Running in headless mode
+   0.006 Audio is disabled
+   0.006 Info ModManager.cpp:446: FeatureFlag expansion-shaders = true
+   0.006 Info ModManager.cpp:446: FeatureFlag freezing = true
+   0.006 Info ModManager.cpp:446: FeatureFlag quality = true
+   0.006 Info ModManager.cpp:446: FeatureFlag rail-bridges = true
+   0.006 Info ModManager.cpp:446: FeatureFlag segmented-units = true
+   0.006 Info ModManager.cpp:446: FeatureFlag space-travel = true
+   0.006 Info ModManager.cpp:446: FeatureFlag spoiling = true
+   0.008 Loading mod core 0.0.0 (data.lua)
+   0.018 Loading mod base 2.0.72 (data.lua)
+   0.115 Loading mod elevated-rails 2.0.72 (data.lua)
+   0.133 Loading mod quality 2.0.72 (data.lua)
+   0.144 Loading mod space-age 2.0.72 (data.lua)
+   0.314 Loading mod base 2.0.72 (data-updates.lua)
+   0.324 Loading mod quality 2.0.72 (data-updates.lua)
+   0.337 Loading mod space-age 2.0.72 (data-updates.lua)
+   0.408 Checksum for core: 3316885848
+   0.408 Checksum of base: 1879415942
+   0.408 Checksum of elevated-rails: 70351106
+   0.408 Checksum of quality: 1142589254
+   0.408 Checksum of space-age: 1510664043
+   0.692 Prototype list checksum: 3295867752
+   0.740 Info PlayerData.cpp:64: Local player-data.json available, timestamp 1761478436
+   0.740 Info PlayerData.cpp:71: Cloud player-data.json unavailable
+   0.741 Info GlobalContext.cpp:1294: Resetting config.
+   0.741 Factorio initialised
+   0.741 Info ServerSynchronizer.cpp:22: nextHeartbeatSequenceNumber(0) initialized Synchronizer nextTickClosureTick(0).
+   0.741 Info ServerMultiplayerManager.cpp:808: updateTick(18446744073709551615) changing state from(Ready) to(PreparedToHostGame)
+   0.741 Info ServerMultiplayerManager.cpp:808: updateTick(18446744073709551615) changing state from(PreparedToHostGame) to(CreatingGame)
+   0.742 Loading map /factorio/saves/world-live.zip: 1343006 bytes.
+   0.758 Loading level.dat: 1202441 bytes.
+   0.758 Info Scenario.cpp:154: Map version 2.0.69-0
+   0.781 Blueprint storage "blueprint-storage-2.dat" was not found, trying to load previous version storage "blueprint-storage.dat"
+   0.785 Loading script.dat: 1222 bytes.
+   0.787 Checksum for script __level__/control.lua: 2722821277
+   0.788 Info UDPSocket.cpp:37: Opening socket at (IP ADDR:({0.0.0.0:34197}))
+   0.788 Hosting game at IP ADDR:({0.0.0.0:34197})
+   0.788 Info HttpSharedState.cpp:57: Downloading https://auth.factorio.com/generate-server-padlock-2?api_version=6
+   0.906 Info AuthServerConnector.cpp:112: Obtained serverPadlock for serverHash (rJsgIt68cc7T356yfTXZEauHC83T3rAg) from the auth server.
+   0.906 Info ServerMultiplayerManager.cpp:808: updateTick(144) changing state from(CreatingGame) to(InGame)
+   0.906 Info UDPSocket.cpp:49: Opening socket for broadcast
+   0.907 Error InterruptibleStdioStream.cpp:55: Got EOF on stdin; closing
+   0.907 Info RemoteCommandProcessor.cpp:126: Starting RCON interface at IP ADDR:({0.0.0.0:27015})
+   0.000 2025-10-26 13:28:38; Factorio 2.0.72 (build 84292, linux64, headless, space-age)
+   0.000 Operating system: Linux
+   0.000 Not rotating logs.
+   0.000 Program arguments: "/opt/factorio/bin/x64/factorio" "--config" "/factorio/config/config.ini" "--port" "34197" "--rcon-port" "27015" "--server-settings" "/factorio/config/server-settings.json" "--rcon-password" <private> "/factorio/config/rconpw" "2>/dev/null" "||" "echo" "defaultpass)"" "--mod-directory" "/factorio/mods" "--console-log" "/dev/stdout" "--no-log-rotation" "--start-server" "/factorio/saves/world-live.zip" 
+   0.000 Config path: /factorio/config/config.ini
+   0.000 Read data path: /opt/factorio/data
+   0.000 Write data path: /factorio [425548/478562MB]
+   0.000 Binaries path: /opt/factorio/bin
+   0.005 System info: [CPU: AMD Ryzen 5 6600H with Radeon Graphics, 12 cores, RAM: 15228 MB]
+   0.005 Environment: DISPLAY=<unset> WAYLAND_DISPLAY=<unset> DESKTOP_SESSION=<unset> XDG_SESSION_DESKTOP=<unset> XDG_CURRENT_DESKTOP=<unset> SDL_VIDEODRIVER=<unset> __GL_FSAA_MODE=<unset> __GL_LOG_MAX_ANISO=<unset> __GL_SYNC_TO_VBLANK=<unset> __GL_SORT_FBCONFIGS=<unset> __GL_YIELD=<unset>
+   0.006 Running in headless mode
+   0.006 Audio is disabled
+   0.007 Info ModManager.cpp:446: FeatureFlag expansion-shaders = true
+   0.007 Info ModManager.cpp:446: FeatureFlag freezing = true
+   0.007 Info ModManager.cpp:446: FeatureFlag quality = true
+   0.007 Info ModManager.cpp:446: FeatureFlag rail-bridges = true
+   0.007 Info ModManager.cpp:446: FeatureFlag segmented-units = true
+   0.007 Info ModManager.cpp:446: FeatureFlag space-travel = true
+   0.007 Info ModManager.cpp:446: FeatureFlag spoiling = true
+   0.009 Loading mod core 0.0.0 (data.lua)
+   0.019 Loading mod base 2.0.72 (data.lua)
+   0.124 Loading mod elevated-rails 2.0.72 (data.lua)
+   0.139 Loading mod quality 2.0.72 (data.lua)
+   0.150 Loading mod space-age 2.0.72 (data.lua)
+   0.310 Loading mod base 2.0.72 (data-updates.lua)
+   0.321 Loading mod quality 2.0.72 (data-updates.lua)
+   0.335 Loading mod space-age 2.0.72 (data-updates.lua)
+   0.403 Checksum for core: 3316885848
+   0.403 Checksum of base: 1879415942
+   0.403 Checksum of elevated-rails: 70351106
+   0.403 Checksum of quality: 1142589254
+   0.403 Checksum of space-age: 1510664043
+   0.692 Prototype list checksum: 3295867752
+   0.739 Info PlayerData.cpp:64: Local player-data.json available, timestamp 1761478436
+   0.739 Info PlayerData.cpp:71: Cloud player-data.json unavailable
+   0.740 Info GlobalContext.cpp:1294: Resetting config.
+   0.740 Factorio initialised
+   0.741 Info ServerSynchronizer.cpp:22: nextHeartbeatSequenceNumber(0) initialized Synchronizer nextTickClosureTick(0).
+   0.741 Info ServerMultiplayerManager.cpp:808: updateTick(18446744073709551615) changing state from(Ready) to(PreparedToHostGame)
+   0.741 Info ServerMultiplayerManager.cpp:808: updateTick(18446744073709551615) changing state from(PreparedToHostGame) to(CreatingGame)
+   0.741 Loading map /factorio/saves/world-live.zip: 1343006 bytes.
+   0.758 Loading level.dat: 1202441 bytes.
+   0.758 Info Scenario.cpp:154: Map version 2.0.69-0
+   0.785 Blueprint storage "blueprint-storage-2.dat" was not found, trying to load previous version storage "blueprint-storage.dat"
+   0.788 Loading script.dat: 1222 bytes.
+   0.791 Checksum for script __level__/control.lua: 2722821277
+   0.792 Info UDPSocket.cpp:37: Opening socket at (IP ADDR:({0.0.0.0:34197}))
+   0.793 Hosting game at IP ADDR:({0.0.0.0:34197})
+   0.793 Info HttpSharedState.cpp:57: Downloading https://auth.factorio.com/generate-server-padlock-2?api_version=6
+   0.917 Info AuthServerConnector.cpp:112: Obtained serverPadlock for serverHash (nfGJ2rrBEAUXEpPjLoQwMsjqUr4NHqJv) from the auth server.
+   0.917 Info ServerMultiplayerManager.cpp:808: updateTick(144) changing state from(CreatingGame) to(InGame)
+   0.917 Info UDPSocket.cpp:49: Opening socket for broadcast
+   0.917 Error InterruptibleStdioStream.cpp:55: Got EOF on stdin; closing
+   0.917 Info RemoteCommandProcessor.cpp:126: Starting RCON interface at IP ADDR:({0.0.0.0:27015})
+   0.000 2025-10-26 13:30:15; Factorio 2.0.72 (build 84292, linux64, headless, space-age)
+   0.000 Operating system: Linux
+   0.000 Not rotating logs.
+   0.000 Program arguments: "/opt/factorio/bin/x64/factorio" "--config" "/factorio/config/config.ini" "--port" "34197" "--rcon-port" "27015" "--server-settings" "/factorio/config/server-settings.json" "--rcon-password" <private> "/factorio/config/rconpw" "2>/dev/null" "||" "echo" "defaultpass)"" "--mod-directory" "/factorio/mods" "--console-log" "/dev/stdout" "--no-log-rotation" "--start-server" "/factorio/saves/world-live.zip" 
+   0.000 Config path: /factorio/config/config.ini
+   0.000 Read data path: /opt/factorio/data
+   0.000 Write data path: /factorio [425546/478562MB]
+   0.000 Binaries path: /opt/factorio/bin
+   0.006 System info: [CPU: AMD Ryzen 5 6600H with Radeon Graphics, 12 cores, RAM: 15228 MB]
+   0.006 Environment: DISPLAY=<unset> WAYLAND_DISPLAY=<unset> DESKTOP_SESSION=<unset> XDG_SESSION_DESKTOP=<unset> XDG_CURRENT_DESKTOP=<unset> SDL_VIDEODRIVER=<unset> __GL_FSAA_MODE=<unset> __GL_LOG_MAX_ANISO=<unset> __GL_SYNC_TO_VBLANK=<unset> __GL_SORT_FBCONFIGS=<unset> __GL_YIELD=<unset>
+   0.006 Running in headless mode
+   0.006 Audio is disabled
+   0.007 Info ModManager.cpp:446: FeatureFlag expansion-shaders = true
+   0.007 Info ModManager.cpp:446: FeatureFlag freezing = true
+   0.007 Info ModManager.cpp:446: FeatureFlag quality = true
+   0.007 Info ModManager.cpp:446: FeatureFlag rail-bridges = true
+   0.007 Info ModManager.cpp:446: FeatureFlag segmented-units = true
+   0.007 Info ModManager.cpp:446: FeatureFlag space-travel = true
+   0.007 Info ModManager.cpp:446: FeatureFlag spoiling = true
+   0.009 Loading mod core 0.0.0 (data.lua)
+   0.018 Loading mod base 2.0.72 (data.lua)
+   0.119 Loading mod elevated-rails 2.0.72 (data.lua)
+   0.136 Loading mod quality 2.0.72 (data.lua)
+   0.145 Loading mod space-age 2.0.72 (data.lua)
+   0.306 Loading mod base 2.0.72 (data-updates.lua)
+   0.317 Loading mod quality 2.0.72 (data-updates.lua)
+   0.336 Loading mod space-age 2.0.72 (data-updates.lua)
+   0.407 Checksum for core: 3316885848
+   0.407 Checksum of base: 1879415942
+   0.407 Checksum of elevated-rails: 70351106
+   0.407 Checksum of quality: 1142589254
+   0.407 Checksum of space-age: 1510664043
+   0.693 Prototype list checksum: 3295867752
+   0.740 Info PlayerData.cpp:64: Local player-data.json available, timestamp 1761478436
+   0.740 Info PlayerData.cpp:71: Cloud player-data.json unavailable
+   0.741 Info GlobalContext.cpp:1294: Resetting config.
+   0.742 Factorio initialised
+   0.742 Info ServerSynchronizer.cpp:22: nextHeartbeatSequenceNumber(0) initialized Synchronizer nextTickClosureTick(0).
+   0.742 Info ServerMultiplayerManager.cpp:808: updateTick(18446744073709551615) changing state from(Ready) to(PreparedToHostGame)
+   0.742 Info ServerMultiplayerManager.cpp:808: updateTick(18446744073709551615) changing state from(PreparedToHostGame) to(CreatingGame)
+   0.742 Loading map /factorio/saves/world-live.zip: 1343006 bytes.
+   0.760 Loading level.dat: 1202441 bytes.
+   0.760 Info Scenario.cpp:154: Map version 2.0.69-0
+   0.782 Blueprint storage "blueprint-storage-2.dat" was not found, trying to load previous version storage "blueprint-storage.dat"
+   0.785 Loading script.dat: 1222 bytes.
+   0.787 Checksum for script __level__/control.lua: 2722821277
+   0.788 Info UDPSocket.cpp:37: Opening socket at (IP ADDR:({0.0.0.0:34197}))
+   0.789 Hosting game at IP ADDR:({0.0.0.0:34197})
+   0.789 Info HttpSharedState.cpp:57: Downloading https://auth.factorio.com/generate-server-padlock-2?api_version=6
+   0.915 Info AuthServerConnector.cpp:112: Obtained serverPadlock for serverHash (1wHwRdijVoBoJRUALlFuJyjI0zIidBWw) from the auth server.
+   0.915 Info ServerMultiplayerManager.cpp:808: updateTick(144) changing state from(CreatingGame) to(InGame)
+   0.915 Info UDPSocket.cpp:49: Opening socket for broadcast
+   0.915 Error InterruptibleStdioStream.cpp:55: Got EOF on stdin; closing
+   0.915 Info RemoteCommandProcessor.cpp:126: Starting RCON interface at IP ADDR:({0.0.0.0:27015})

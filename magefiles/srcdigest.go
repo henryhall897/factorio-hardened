@@ -22,8 +22,9 @@ type SrcDigest mg.Namespace
 
 // Constants and configuration defaults.
 const (
-	upstreamImage = "factoriotools/factorio:latest"
-	baselineFile  = "baseline.yaml" // Stores last known digests and metadata
+	upstreamImage = "factoriotools/factorio"
+	// Change this tag whenever you want to baseline a new version.
+	factorioTag = "2.0.69"
 )
 
 // isValidArch returns true if the provided architecture should be included
@@ -68,8 +69,8 @@ func ensureDockerAvailable() error {
 }
 
 // getLocalManifestListDigest retrieves the multi-arch manifest list digest.
-func getLocalManifestListDigest() (string, error) {
-	cmd := exec.Command("docker", "inspect", "--format", "{{index .RepoDigests 0}}", upstreamImage)
+func getLocalManifestListDigest(image string) (string, error) {
+	cmd := exec.Command("docker", "inspect", "--format", "{{index .RepoDigests 0}}", image)
 	output, err := cmd.CombinedOutput()
 	if err != nil {
 		return "", fmt.Errorf("failed to inspect manifest list digest: %v\n%s", err, string(output))
@@ -82,8 +83,8 @@ func getLocalManifestListDigest() (string, error) {
 }
 
 // getLocalArchDigest retrieves the architecture-specific digest for the current platform.
-func getLocalArchDigest() (string, error) {
-	cmd := exec.Command("docker", "manifest", "inspect", upstreamImage)
+func getLocalArchDigest(image string) (string, error) {
+	cmd := exec.Command("docker", "manifest", "inspect", image)
 	output, err := cmd.CombinedOutput()
 	if err != nil {
 		return "", fmt.Errorf("failed to inspect manifest: %v\n%s", err, string(output))
@@ -112,22 +113,15 @@ func getLocalArchDigest() (string, error) {
 }
 
 // All runs the full source digest maintenance workflow.
-// It performs the following steps:
-//  1. Display the current stored digest (Show)
-//  2. Compare it with the upstream digest (Compare)
-//  3. If a change or missing baseline is detected, synchronize to the latest version (Sync)
 func (SrcDigest) All() error {
 	fmt.Println("Running SrcDigest:All workflow...")
 
-	// Step 1: Show current digest (if exists)
 	if err := (SrcDigest{}.Show()); err != nil {
 		fmt.Printf("Show step failed: %v\n", err)
 	}
 
-	// Step 2: Compare local vs. upstream digest
 	err := (SrcDigest{}.Compare())
 
-	// If no baseline file exists, automatically initialize it.
 	if err != nil && strings.Contains(strings.ToLower(err.Error()), "no baseline") {
 		fmt.Println("Baseline missing. Performing initial sync...")
 		if syncErr := (SrcDigest{}.Sync()); syncErr != nil {
@@ -142,9 +136,8 @@ func (SrcDigest) All() error {
 		return nil
 	}
 
-	// If differences found, perform sync.
 	fmt.Printf("Change detected: %v\n", err)
-	fmt.Println("Synchronizing to latest upstream version...")
+	fmt.Println("Synchronizing to target version...")
 	if syncErr := (SrcDigest{}.Sync()); syncErr != nil {
 		return fmt.Errorf("sync failed: %v", syncErr)
 	}
@@ -153,8 +146,7 @@ func (SrcDigest) All() error {
 	return nil
 }
 
-// Show prints the current digest entry for the local architecture
-// based on the baseline file, or queries Docker if missing.
+// Show prints the current digest entry for the local architecture.
 func (SrcDigest) Show() error {
 	localArch := getLocalArch()
 	fmt.Printf("Fetching Factorio digests for architecture: %s\n", localArch)
@@ -179,32 +171,29 @@ func (SrcDigest) Show() error {
 	return nil
 }
 
-// Compare checks whether the current local manifest list or architecture-specific
-// digest differs from what is stored in baseline.yaml.
+// Compare checks whether the current manifest list or architecture digest differs from baseline.
 func (SrcDigest) Compare() error {
 	localArch := getLocalArch()
-	fmt.Printf("Comparing digests for architecture: %s\n", localArch)
+	fullImage := fmt.Sprintf("%s:%s", upstreamImage, factorioTag)
+	fmt.Printf("Comparing digests for %s (%s)\n", localArch, fullImage)
 
 	if err := ensureDockerAvailable(); err != nil {
 		return err
 	}
 
-	// Retrieve both the manifest list and architecture-specific digests.
-	currentList, err := getLocalManifestListDigest()
+	currentList, err := getLocalManifestListDigest(fullImage)
 	if err != nil {
 		return err
 	}
-	currentArch, err := getLocalArchDigest()
+	currentArch, err := getLocalArchDigest(fullImage)
 	if err != nil {
 		return err
 	}
 
-	// Load baseline file.
 	data, err := os.ReadFile(baselineFile)
 	if errors.Is(err, os.ErrNotExist) {
 		return fmt.Errorf("no baseline file found")
 	}
-
 	if err != nil {
 		return fmt.Errorf("cannot read baseline file: %v", err)
 	}
@@ -214,13 +203,11 @@ func (SrcDigest) Compare() error {
 		return fmt.Errorf("failed to parse baseline: %v", err)
 	}
 
-	// Compare manifest list first.
 	if meta.ManifestList != currentList {
 		fmt.Printf("Manifest list updated.\nOld: %s\nNew: %s\n", meta.ManifestList, currentList)
 		return fmt.Errorf("manifest list digest changed")
 	}
 
-	// Compare architecture-specific digest.
 	if oldArchDigest, ok := meta.Digests[localArch]; ok {
 		if oldArchDigest != currentArch {
 			fmt.Printf("Architecture digest updated for %s.\nOld: %s\nNew: %s\n", localArch, oldArchDigest, currentArch)
@@ -235,32 +222,31 @@ func (SrcDigest) Compare() error {
 	return nil
 }
 
-// Sync pulls the upstream image for the local architecture and updates (or creates)
-// baseline.yaml to include the manifest list digest and per-architecture digests.
+// Sync pulls the Factorio image for the configured tag and updates (or creates) baseline.yaml.
 func (SrcDigest) Sync() error {
+	_ = os.MkdirAll("builddata", 0755)
 	localArch := getLocalArch()
-	fmt.Printf("Syncing Factorio image for architecture: %s\n", localArch)
+	fullImage := fmt.Sprintf("%s:%s", upstreamImage, factorioTag)
+
+	fmt.Printf("Syncing Factorio image %s for architecture: %s\n", fullImage, localArch)
 
 	if err := ensureDockerAvailable(); err != nil {
 		return err
 	}
 
-	// Pull the latest manifest list.
-	cmd := exec.Command("docker", "pull", upstreamImage)
+	cmd := exec.Command("docker", "pull", fullImage)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	if err := cmd.Run(); err != nil {
 		return fmt.Errorf("failed to pull upstream image: %v", err)
 	}
 
-	// Get top-level manifest list digest.
-	listDigest, err := getLocalManifestListDigest()
+	listDigest, err := getLocalManifestListDigest(fullImage)
 	if err != nil {
 		return err
 	}
 
-	// Inspect manifest list for per-architecture digests.
-	cmd = exec.Command("docker", "manifest", "inspect", upstreamImage)
+	cmd = exec.Command("docker", "manifest", "inspect", fullImage)
 	output, err := cmd.CombinedOutput()
 	if err != nil {
 		return fmt.Errorf("failed to inspect manifest: %v\n%s", err, string(output))
@@ -281,10 +267,9 @@ func (SrcDigest) Sync() error {
 
 	now := time.Now().UTC().Truncate(time.Second)
 
-	// Initialize or merge existing baseline.
 	meta := MultiArchMetadata{
 		Repository:   upstreamImage,
-		Tag:          "latest",
+		Tag:          factorioTag,
 		ManifestList: listDigest,
 		Digests:      make(map[string]string),
 		UpdatedAt:    now,
@@ -298,7 +283,6 @@ func (SrcDigest) Sync() error {
 		}
 	}
 
-	// Populate all arch digests from manifest.
 	for _, m := range manifest.Manifests {
 		arch := strings.TrimSpace(strings.ToLower(m.Platform.Architecture))
 		if !isValidArch(arch) {
@@ -308,7 +292,6 @@ func (SrcDigest) Sync() error {
 		meta.Digests[arch] = m.Digest
 	}
 
-	// Write updated baseline file.
 	file, err := os.Create(baselineFile)
 	if err != nil {
 		return fmt.Errorf("failed to write baseline file: %v", err)
@@ -321,7 +304,8 @@ func (SrcDigest) Sync() error {
 		return fmt.Errorf("failed to encode baseline metadata: %v", err)
 	}
 
-	fmt.Printf("Baseline updated with manifest list %s and %d architectures.\n", meta.ManifestList, len(meta.Digests))
+	fmt.Printf("Baseline updated for Factorio %s with manifest list %s and %d architectures.\n",
+		factorioTag, meta.ManifestList, len(meta.Digests))
 	for arch, digest := range meta.Digests {
 		fmt.Printf("  %s: %s\n", arch, digest)
 	}

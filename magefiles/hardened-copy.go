@@ -2,12 +2,13 @@
 
 package main
 
-import (
+/*import (
 	"context"
 	"encoding/json"
 	"fmt"
 	"os"
 	"os/exec"
+	"path/filepath"
 	"runtime"
 	"strings"
 	"time"
@@ -50,9 +51,6 @@ func (Hardened) All() error {
 	if err := (Hardened{}.Verify()); err != nil {
 		return fmt.Errorf("verification stage failed: %v", err)
 	}
-	if err := (Hardened{}.Promote()); err != nil {
-		return fmt.Errorf("promotion stage failed: %v", err)
-	}
 	if err := (Hardened{}.Clean()); err != nil {
 		fmt.Printf("cleanup stage warning: %v\n", err)
 	}
@@ -73,7 +71,7 @@ func (Hardened) Test() error {
 	if err := (testBuild()); err != nil {
 		return fmt.Errorf("build stage failed: %v", err)
 	}
-	if err := (Hardened{}.Verify()); err != nil {
+	/*if err := (Hardened{}.Verify()); err != nil {
 		return fmt.Errorf("verification stage failed: %v", err)
 	}
 
@@ -81,30 +79,10 @@ func (Hardened) Test() error {
 	return nil
 }
 
-// Promote pushes the most recently verified image to GHCR.
-func (Hardened) Promote() error {
-	fmt.Println("Promoting verified image to GHCR...")
-
-	version := os.Getenv("VERSION")
-	if version == "" {
-		version = "dev"
-	}
-	tag := fmt.Sprintf("%s:%s", imageRepo, version)
-
-	cmd := exec.Command("docker", "push", tag)
-	cmd.Stdout = os.Stdout
-	cmd.Stderr = os.Stderr
-	if err := cmd.Run(); err != nil {
-		return fmt.Errorf("promotion failed: %v", err)
-	}
-
-	fmt.Println("Image promoted successfully to GHCR.")
-	return nil
-}
-
 // Prepare reads the pinned digest for the current architecture from baseline.yaml,
-// replaces the FROM line in hardened.Dockerfile with a pinned digest reference,
-// ensures an init-config stage exists, and writes a reproducible Dockerfile.
+// replaces the FROM line in hardened.Dockerfile with a dynamic digest reference
+// (via ${BASE_IMAGE_DIGEST}), ensures an init-config stage exists,
+// and writes a reproducible Dockerfile ready for mage Hardened:Build.
 func (Hardened) Prepare() error {
 	fmt.Println("Preparing hardened Dockerfile...")
 
@@ -120,7 +98,9 @@ func (Hardened) Prepare() error {
 	if err := json.Unmarshal(data, &meta); err != nil {
 		return fmt.Errorf("failed to parse baseline: %v", err)
 	}
-
+	if strings.Contains(meta.Repository, ":") {
+		meta.Repository = strings.Split(meta.Repository, ":")[0]
+	}
 	arch := runtime.GOARCH
 	digest, ok := meta.Digests[arch]
 	if !ok {
@@ -142,9 +122,17 @@ func (Hardened) Prepare() error {
 	lines := strings.Split(string(content), "\n")
 	for i, line := range lines {
 		if strings.HasPrefix(strings.TrimSpace(line), "FROM factoriotools/factorio") {
-			lines[i] = fmt.Sprintf("FROM %s@%s AS base", meta.Repository, digest)
+			lines[i] = fmt.Sprintf(
+				"# Base digest pinned for reproducibility: %s\nARG BASE_IMAGE_DIGEST=%s\nFROM %s@${BASE_IMAGE_DIGEST} AS base",
+				digest, digest, meta.Repository,
+			)
+			// Remove any redundant ARG that might precede this line
+			if i > 0 && strings.Contains(lines[i-1], "ARG BASE_IMAGE_DIGEST") {
+				lines[i-1] = ""
+			}
 		}
 	}
+
 	newContent := strings.Join(lines, "\n")
 
 	// Ensure init-config stage exists
@@ -172,7 +160,7 @@ RUN set -eux; \
 		return fmt.Errorf("failed to write pinned Dockerfile: %v", err)
 	}
 
-	// Record metadata for downstream tasks (promote, verify)
+	// Record metadata for downstream tasks
 	buildMeta := BuildMetadata{
 		BaseDigest: digest,
 		Arch:       arch,
@@ -187,61 +175,188 @@ RUN set -eux; \
 	return nil
 }
 
-// Build constructs the hardened image using the pinned Dockerfile.
-// It supports flexible build modes (local load, push, or cached multi-arch).
+// Build performs a production-grade multi-arch build and pushes it to GHCR.
+// It runs a Trivy scan on the amd64 variant before pushing the final manifest list.
 func (Hardened) Build() error {
-	version := os.Getenv("VERSION")
-	if version == "" {
-		version = "dev"
+	var meta BuildMetadata
+	data, err := os.ReadFile("buildmeta.json")
+	if err != nil {
+		return fmt.Errorf("failed to read buildmeta.json: %v", err)
 	}
+	if err := json.Unmarshal(data, &meta); err != nil {
+		return fmt.Errorf("failed to parse buildmeta.json: %v", err)
+	}
+
+	// --- Detect Factorio version from upstream base image ---
+	version, err := getFactorioVersion(baseRef)
+	if err != nil {
+		return fmt.Errorf("could not determine Factorio version: %w", err)
+	}
+
+	// Allow manual override for CI testing (optional)
+	if envVer := os.Getenv("VERSION"); envVer != "" {
+		version = envVer
+	}
+
 	tag := fmt.Sprintf("%s:%s", imageRepo, version)
 
-	fmt.Println("Building Factorio-Hardened image (multi-arch, cached)...")
+	fmt.Println("🏗️  Building Factorio-Hardened image (multi-arch, CI mode)...")
 
-	cmd := exec.Command(
-		"docker", "buildx", "build",
-		"--file", outputDockerfile,
-		"--platform", "linux/amd64,linux/arm64",
-		"--tag", tag,
-		".",
-	)
-	cmd.Stdout = os.Stdout
-	cmd.Stderr = os.Stderr
-
-	if err := cmd.Run(); err != nil {
-		return fmt.Errorf("failed to build image: %v", err)
+	repoRoot, err := os.Getwd()
+	if err != nil {
+		return fmt.Errorf("failed to get working directory: %v", err)
+	}
+	if filepath.Base(repoRoot) == "magefiles" {
+		repoRoot = filepath.Dir(repoRoot)
 	}
 
-	fmt.Printf("Build complete: %s\n", tag)
+	dockerfilePath := filepath.Join(repoRoot, outputDockerfile)
+	if _, err := os.Stat(dockerfilePath); err != nil {
+		dockerfilePath = filepath.Join(repoRoot, hardenedDockerfile)
+	}
+
+	// --- Step 1: Build amd64 variant locally for scanning ---
+	fmt.Println("🧱 Building amd64 variant for Trivy scan...")
+	amd64Tag := tag + "-amd64"
+	buildCmd := exec.Command(
+		"docker", "buildx", "build",
+		"--platform", "linux/amd64",
+		"--tag", amd64Tag,
+		"--build-arg", fmt.Sprintf("BASE_IMAGE_DIGEST=%s", meta.BaseDigest),
+		"--load",
+		"--file", dockerfilePath,
+		repoRoot,
+	)
+	buildCmd.Stdout = os.Stdout
+	buildCmd.Stderr = os.Stderr
+	if err := buildCmd.Run(); err != nil {
+		return fmt.Errorf("amd64 build failed: %v", err)
+	}
+
+	fmt.Println("🔍 Running Trivy vulnerability scan (HIGH/CRITICAL)...")
+	scan := exec.Command("trivy", "image", "--severity", "HIGH,CRITICAL", "--exit-code", "1", amd64Tag)
+	scan.Stdout = os.Stdout
+	scan.Stderr = os.Stderr
+	if err := scan.Run(); err != nil {
+		return fmt.Errorf("Trivy scan failed: %v", err)
+	}
+	fmt.Println("✅ Trivy scan passed.")
+
+	// --- Step 2: Multi-arch build and push ---
+	fmt.Println("🚀 Building and pushing multi-arch image (linux/amd64, linux/arm64)...")
+	pushCmd := exec.Command(
+		"docker", "buildx", "build",
+		"--no-cache",
+		"--platform", "linux/amd64,linux/arm64",
+		"--tag", tag,
+		"--build-arg", fmt.Sprintf("BASE_IMAGE_DIGEST=%s", meta.BaseDigest),
+		"--push",
+		"--file", dockerfilePath,
+		repoRoot,
+	)
+	pushCmd.Stdout = os.Stdout
+	pushCmd.Stderr = os.Stderr
+	if err := pushCmd.Run(); err != nil {
+		return fmt.Errorf("multi-arch build/push failed: %v", err)
+	}
+
+	fmt.Printf("✅ Multi-arch image pushed successfully: %s\n", tag)
 	return nil
 }
 
-// testBuild builds the hardened image for local testing using --load.
+// testBuild builds the hardened image locally and runs a temporary server container
+// to verify that it launches successfully. It stops and removes the container afterward.
 func testBuild() error {
+	// --- Load metadata from buildmeta.json ---
+	var meta BuildMetadata
+	data, err := os.ReadFile("buildmeta.json")
+	if err != nil {
+		return fmt.Errorf("failed to read buildmeta.json: %v", err)
+	}
+	if err := json.Unmarshal(data, &meta); err != nil {
+		return fmt.Errorf("failed to parse buildmeta.json: %v", err)
+	}
+
+	// Use digest directly from metadata
+	digest := meta.BaseDigest
+	if digest == "" {
+		return fmt.Errorf("no base digest found in buildmeta.json")
+	}
+
+	// --- Resolve version and tag ---
 	version := os.Getenv("VERSION")
 	if version == "" {
-		version = "dev"
+		version = meta.Version
+		if version == "" {
+			version = "dev"
+		}
 	}
 	tag := fmt.Sprintf("%s:%s", imageRepo, version)
+	containerName := "factorio-hardened-test"
 
-	fmt.Println("Building Factorio-Hardened image (local dev, single-arch)...")
+	fmt.Println("🛠️  Building Factorio-Hardened image (local dev, single-arch, no push)...")
 
-	cmd := exec.Command(
+	// --- Build hardened image ---
+	build := exec.Command(
 		"docker", "buildx", "build",
 		"--file", outputDockerfile,
 		"--platform", "linux/amd64",
 		"--tag", tag,
 		"--load",
+		"--debug",
+		"--no-cache",
+		"--build-arg", fmt.Sprintf("BASE_IMAGE_DIGEST=%s", digest),
 		".",
 	)
-	cmd.Stdout = os.Stdout
-	cmd.Stderr = os.Stderr
-
-	if err := cmd.Run(); err != nil {
+	build.Stdout = os.Stdout
+	build.Stderr = os.Stderr
+	if err := build.Run(); err != nil {
 		return fmt.Errorf("failed to build image: %v", err)
 	}
 
-	fmt.Printf("Local test build complete: %s\n", tag)
+	fmt.Printf("✅ Local test build complete: %s\n", tag)
+
+	// --- Cleanup any old test container ---
+	_ = exec.Command("docker", "rm", "-f", containerName).Run()
+
+	// --- Prepare temp directory ---
+	tmpDir := filepath.Join(os.TempDir(), "factorio-testdata")
+	_ = os.MkdirAll(tmpDir, 0755)
+
+	fmt.Println("🚀 Running test container for 10 seconds...")
+
+	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	defer cancel()
+
+	run := exec.CommandContext(
+		ctx,
+		"docker", "run",
+		"--rm",
+		"--name", containerName,
+		"--read-only",
+		"--mount", "type=bind,source=./pvc/factorio,destination=/factorio",
+		"--user", "1000:1000",
+		"-p", "34197:34197/udp",
+		"-p", "27015:27015/tcp",
+		tag,
+		"--start-server", "/factorio/saves/world-live.zip",
+	)
+	run.Stdout = os.Stdout
+	run.Stderr = os.Stderr
+
+	if err := run.Run(); err != nil {
+		if ctx.Err() == context.DeadlineExceeded {
+			fmt.Println("🕒 Test run timed out — container appears healthy.")
+		} else {
+			return fmt.Errorf("container test run failed: %v", err)
+		}
+	} else {
+		fmt.Println("✅ Container launched and exited cleanly.")
+	}
+
+	fmt.Println("🧹 Cleaning up temporary files...")
+	_ = os.RemoveAll(tmpDir)
+
 	return nil
 }
 
@@ -312,6 +427,7 @@ func checkReadOnlyRuntime(tag string) error {
 		"-v", "factorio-saves:/factorio/saves",
 		"-v", "factorio-scenarios:/factorio/scenarios",
 		"-v", "factorio-output:/factorio/script-output",
+		"--entrypoint", "/opt/factorio/bin/x64/factorio",
 		tag, "--version",
 	)
 
@@ -385,3 +501,4 @@ func (Hardened) Clean() error {
 	}
 	return nil
 }
+*/

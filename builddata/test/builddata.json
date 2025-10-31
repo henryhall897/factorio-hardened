@@ -1,0 +1,8 @@
+{
+  "Arch": "amd64",
+  "BaseDigest": "sha256:bee8e1751f9cf59d673cb9eb751d55403407f90aa3701125b267ec778b85677a",
+  "BuiltAt": "2025-10-26T18:18:26.719091513Z",
+  "Digest": "sha256:088a8464e52e8641a1fee986ebc6639409533bde931b9a578bfd88460e0bf941",
+  "Tag": "factorio-hardened:dev",
+  "Version": "dev"
+}

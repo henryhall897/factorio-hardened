@@ -1,0 +1,10 @@
+{
+  "repository": "factoriotools/factorio",
+  "tag": "2.0.69",
+  "manifest_list": "sha256:feeebedf6754969a43d7c08a48fc9508b2d91b34f5cbf1e120740b3fbdf3a75e",
+  "digests": {
+    "amd64": "sha256:66dc5854594d69001ae2b16107d7b595bdb6a1f4b99f2b2a4515841fe9dcf2c3",
+    "arm64": "sha256:e6b99a934497925e36ba368d9e7b1c3b2b6a9a5e254b071a561205017748ff1b"
+  },
+  "updated_at": "2025-10-26T20:51:55Z"
+}

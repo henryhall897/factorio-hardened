@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"os"
 	"os/exec"
+	"strings"
 
 	"github.com/magefile/mage/mg"
 	"github.com/magefile/mage/sh"
@@ -48,19 +49,37 @@ func (Trivy) Deps() error {
 }
 
 // ImageScan runs a vulnerability scan on a specified container image using Trivy.
+// It automatically detects local vs. remote images and avoids network pulls for local tags.
 func (Trivy) ImageScan() error {
-	image := "ghcr.io/henryhall897/factorio-hardened:latest"
-	fmt.Printf("Scanning image %s for vulnerabilities...\n", image)
+	image := os.Getenv("IMAGE")
+	if image == "" {
+		return fmt.Errorf("IMAGE not provided (use os.Setenv or mage var)")
+	}
 
-	cmd := exec.Command("trivy", "image", "--severity", "CRITICAL,HIGH", image)
+	fmt.Printf("🔍 Scanning image %s for vulnerabilities...\n", image)
+
+	args := []string{
+		"image", "--severity", "CRITICAL,HIGH",
+		"--exit-code", "1", "--quiet",
+		"--ignore-unfixed",
+		"--scanners", "vuln",
+		image,
+	}
+
+	// Disable automatic pull if scanning local builds
+	if !strings.Contains(image, "ghcr.io") {
+		args = append(args, "--skip-update")
+	}
+
+	cmd := exec.Command("trivy", args...)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 
 	if err := cmd.Run(); err != nil {
-		return fmt.Errorf("Trivy scan failed: %w", err)
+		return fmt.Errorf("Trivy scan failed for %s: %w", image, err)
 	}
 
-	fmt.Println("Image vulnerability scan completed successfully.")
+	fmt.Println("✅ Trivy vulnerability scan completed successfully.")
 	return nil
 }
 
